@@ -1,0 +1,23 @@
+.avatars {
+
+}
+
+.avatars img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 6px;
+    margin-top: 20px;
+}
+
+.friends {
+    margin-top: 300px;
+    color: white;
+    font-size: 30px;
+}
+
+.names {
+    color: white;
+    text-decoration: none;
+    padding: 3px;
+}
