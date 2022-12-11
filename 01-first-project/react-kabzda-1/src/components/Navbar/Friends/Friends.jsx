@@ -1,20 +1,13 @@
 import React from 'react';
 import s from './Friends.module.css'
-import nikita from '../../../img/nikita.jpg'
-import arseniy from '../../../img/arseniy.jpg'
-import nastya from '../../../img/nastya.png'
+import Friend from "./Friend/Friend";
 
 const Friends = (props) => {
     return (
-        <div>
-            <div className={s.friends}>Friends</div>
-            <div className={s.avatars}>
-                <img src={nikita} alt=""/>
-                <img src={arseniy} alt=""/>
-                <img src={nastya} alt=""/>
-            </div>
-            <div className={s.names}>
-                {props.names}
+        <div className={s.wrapper}>
+            <div>Friends Online</div>
+            <div className={s.friends}>
+                {props.friends.map(f => <Friend avatar={f.avatar} name={f.name}/>)}
             </div>
         </div>
     );

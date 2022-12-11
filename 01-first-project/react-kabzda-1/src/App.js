@@ -8,13 +8,14 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import NavbarContainer from "./components/Navbar/NavbarContainer";
 
 const App = () => {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header />
-                <Navbar />
+                <NavbarContainer />
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path='/profile' element={<Profile />}/>
