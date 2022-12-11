@@ -1,0 +1,73 @@
+.wrapper {
+    color: white;
+}
+
+.item {
+    width: 600px;
+    border: 1px solid #aeafaf;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.name {
+    font-size: 18px;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+/*.name:hover {*/
+/*    cursor: pointer;*/
+/*}*/
+
+.btn button {
+    border: none;
+    margin: 20px 15px 0 200px;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+}
+
+.btn button:hover {
+    cursor: pointer;
+}
+
+.unfollowed {
+    background-color: white;
+    color: black;
+}
+
+.unfollowed:hover {
+    background-color: #c6c6c6;
+    color: #242424;
+}
+
+.followed {
+    background-color: #383838;
+    color: white;
+}
+
+.followed:hover {
+    background-color: #4c4c4c;
+}
+
+.top {
+    display: flex;
+}
+
+.location {
+    color: #adadad;
+    margin-left: 120px;
+}
+
+.status {
+    color: #adadad;
+    margin-left: 120px;
+}
+

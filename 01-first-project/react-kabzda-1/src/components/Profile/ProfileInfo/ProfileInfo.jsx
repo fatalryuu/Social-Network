@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './ProfileInfo.module.css'
-import avatar from '../../../img/avatar.jpg'
+import avatar from '../../../img/profile_avatar.jpg'
 
 const ProfileInfo = () => {
     return (

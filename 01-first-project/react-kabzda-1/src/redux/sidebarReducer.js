@@ -3,9 +3,9 @@ import arseniyAvatar from '../img/arseniy.jpg';
 import nastyaAvatar from '../img/nastya.png';
 let initialState = {
     friends: [
-        {avatar: nikitaAvatar, name: 'Nikita'},
-        {avatar: arseniyAvatar, name: 'Arseniy'},
-        {avatar: nastyaAvatar, name: 'Nastya'}
+        {id: 1, avatar: nikitaAvatar, name: 'Nikita'},
+        {id: 2, avatar: arseniyAvatar, name: 'Arseniy'},
+        {id: 3, avatar: nastyaAvatar, name: 'Nastya'}
     ]
 }
 

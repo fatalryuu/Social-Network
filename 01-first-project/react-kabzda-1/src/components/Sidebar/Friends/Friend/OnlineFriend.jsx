@@ -1,7 +1,7 @@
 import React from 'react';
-import s from "./Friend.module.css";
+import s from "./OnlineFriend.module.css";
 
-const Friend = (props) => {
+const OnlineFriend = (props) => {
     return (
         <div>
             <div className={s.avatar}>
@@ -14,4 +14,4 @@ const Friend = (props) => {
     );
 };
 
-export default Friend;
+export default OnlineFriend;

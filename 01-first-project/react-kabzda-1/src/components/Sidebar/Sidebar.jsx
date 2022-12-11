@@ -1,9 +1,9 @@
 import React from 'react';
-import s from './Navbar.module.css'
+import s from './Sidebar.module.css'
 import {NavLink} from "react-router-dom";
-import Friends from "./Friends/Friends";
+import OnlineFriends from "./Friends/OnlineFriends";
 
-const Navbar = (props) => {
+const Sidebar = (props) => {
     return (
         <nav className={s.nav}>
             <div className={s.item}>
@@ -15,15 +15,18 @@ const Navbar = (props) => {
             <div className={`${s.item} ${s.active}`}>
                 <NavLink to="/dialogs" className = {({isActive}) => isActive ? s.active : s.item}>Messages</NavLink>
             </div>
+            <div className={`${s.item} ${s.active}`}>
+                <NavLink to="/users" className = {({isActive}) => isActive ? s.active : s.item}>Users</NavLink>
+            </div>
             <div className={s.item}>
                 <NavLink to="/music" className = {({isActive}) => isActive ? s.active : s.item}>Music</NavLink>
             </div>
             <div className={s.item}>
                 <NavLink to="/settings" className = {({isActive}) => isActive ? s.active : s.item}>Settings</NavLink>
             </div>
-            <Friends friends={props.friends} />
+            <OnlineFriends friends={props.friends} />
         </nav>
     );
 }
 
-export default Navbar;
+export default Sidebar;

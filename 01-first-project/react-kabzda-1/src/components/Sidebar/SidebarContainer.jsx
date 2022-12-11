@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 
 const mapStateToProps = (state) => {
     return {
@@ -14,6 +14,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const NavbarContainer = connect(mapStateToProps)(Navbar);
+const SidebarContainer = connect(mapStateToProps)(Sidebar);
 
-export default NavbarContainer;
+export default SidebarContainer;
