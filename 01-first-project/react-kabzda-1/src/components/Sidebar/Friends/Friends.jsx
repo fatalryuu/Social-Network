@@ -7,7 +7,7 @@ const Friends = (props) => {
         <div className={s.wrapper}>
             <div>Friends Online</div>
             <div className={s.friends}>
-                {props.friends.map(f => <Friend avatar={f.avatar} name={f.name}/>)}
+                {props.friends.map((f, i) => <Friend avatar={f.avatar} name={f.name} key={i}/>)}
             </div>
         </div>
     );
