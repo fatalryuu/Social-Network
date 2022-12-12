@@ -1,13 +1,35 @@
 .items {
     color: white;
+    background-color: #232323;
+    width: 642px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #5a5a5a;
+}
+
+.get {
+    margin-left: 260px;
+    margin-bottom: 10px;
+    border: none;
+    width: 100px;
+    height: 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.get:hover {
+    background-color: #aeafaf;
+}
+
+.get:active {
+    background-color: #898989;
 }
 
 .item {
     width: 600px;
     height: 105px;
-    border: 1px solid #aeafaf;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    border-bottom: 1px solid #5a5a5a;
+    margin: 0 auto 10px;
     display: flex;
 }
 
@@ -61,5 +83,16 @@
 .location {
     color: #adadad;
     margin-left: 15px;
+}
+
+.show_more {
+    height: 50px;
+}
+
+.link {
+    margin-left: 270px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
 }
 

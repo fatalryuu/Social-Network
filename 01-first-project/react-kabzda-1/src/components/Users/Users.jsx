@@ -14,7 +14,7 @@ const Users = (props) => {
     }
     return (
         <div className={s.items}>
-            <button onClick={getUsers}>Get Users</button>
+            <button onClick={getUsers} className={s.get}>Get Users</button>
             {props.users.map(u =>
                 <div key={u.id} className={s.item}>
                     <a href=""><img src={u.photos.small != null ? u.photos.small : avatar} alt="" className={s.avatar}/></a>
@@ -30,6 +30,10 @@ const Users = (props) => {
                     </div>
                 </div>)
             }
+            <div className={s.show_more}>
+                <a href="#" className={s.link}>Show More</a>
+            </div>
+
         </div>
     );
 };
