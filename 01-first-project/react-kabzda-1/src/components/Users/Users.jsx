@@ -4,15 +4,17 @@ import avatar from "../../img/user_avatar.jpg";
 import axios from "axios";
 
 const Users = (props) => {
-    debugger
-    if (props.users.length === 0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
-            .then(response => {
-                props.setUsers(response.data.items);
-            });
+    const getUsers = () => {
+        if (props.users.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users')
+                .then(response => {
+                    props.setUsers(response.data.items);
+                });
+        }
     }
     return (
         <div className={s.items}>
+            <button onClick={getUsers}>Get Users</button>
             {props.users.map(u =>
                 <div key={u.id} className={s.item}>
                     <a href=""><img src={u.photos.small != null ? u.photos.small : avatar} alt="" className={s.avatar}/></a>
