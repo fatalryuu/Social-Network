@@ -1,13 +1,14 @@
-.wrapper {
+.items {
     color: white;
 }
 
 .item {
     width: 600px;
+    height: 105px;
     border: 1px solid #aeafaf;
     border-radius: 5px;
     margin-bottom: 10px;
-    height: 105px;
+    display: flex;
 }
 
 .avatar {
@@ -18,24 +19,23 @@
 
 .name {
     font-size: 18px;
-    padding-top: 10px;
-    padding-left: 10px;
+    margin: 10px 0 0 15px;
     font-weight: 600;
 }
 
-/*.name:hover {*/
-/*    cursor: pointer;*/
-/*}*/
+.btn_wrapper {
+    height: 3px;
+}
 
-.btn button {
+.btn_wrapper button {
     border: none;
-    margin: 20px 15px 0 200px;
+    margin: 0 15px 0 330px;
     border-radius: 5px;
     width: 150px;
     height: 30px;
 }
 
-.btn button:hover {
+.btn_wrapper button:hover {
     cursor: pointer;
 }
 
@@ -58,19 +58,8 @@
     background-color: #4c4c4c;
 }
 
-.top {
-    display: flex;
-    justify-content: space-between;
-    height: 40px;
-}
-
 .location {
     color: #adadad;
-    margin-left: 120px;
-}
-
-.status {
-    color: #adadad;
-    margin-left: 120px;
+    margin-left: 15px;
 }
 

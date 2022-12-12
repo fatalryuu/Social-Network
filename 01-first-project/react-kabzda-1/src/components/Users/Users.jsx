@@ -12,21 +12,20 @@ const Users = (props) => {
             });
     }
     return (
-        <div className={s.wrapper}>
+        <div className={s.items}>
             {props.users.map(u =>
                 <div key={u.id} className={s.item}>
-                    <div className={s.top}>
-                        <a href=""><img src={u.photos.small != null ? u.photos.small : avatar} alt="" className={s.avatar}/></a>
+                    <a href=""><img src={u.photos.small != null ? u.photos.small : avatar} alt="" className={s.avatar}/></a>
+                    <div>
                         <div className={s.name}>{u.name}</div>
-                        <div className={s.btn}>
+                        <div className={s.btn_wrapper}>
                             {u.followed ?
                                 <button onClick={() => {props.unfollow(u.id)}} className={s.followed}>Unfollow</button> :
                                 <button onClick={() => {props.follow(u.id)}} className={s.unfollowed}>Follow</button>
                             }
                         </div>
+                        <div className={s.location}>{u.status != null ? u.status : 'BSUIR'}</div>
                     </div>
-                    {/*<div className={s.location}>{u.location.country}, {u.location.city}</div>*/}
-                    <div className={s.location}>{u.status != null ? u.status : 'BSUIR'}</div>
                 </div>)
             }
         </div>
