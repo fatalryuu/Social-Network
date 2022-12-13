@@ -8,9 +8,14 @@ const ProfileInfo = (props) => {
         return <Preloader />
     }
     return (
-        <div>
+        <div className={s.profile_info}>
             <div className={s.avatar}>
                 <img src={props.profile.photos.large != null ? props.profile.photos.large : avatar} alt=""/>
+            </div>
+            <div className={s.info}>
+                <div className={s.name}>{props.profile.fullName}</div>
+                <div className={s.about}>{props.profile.aboutMe}</div>
+                {props.profile.lookingForAJob ? <div className={s.job}>{props.profile.lookingForAJobDescription}</div> : null}
             </div>
         </div>
     );
