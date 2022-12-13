@@ -20,7 +20,8 @@ const App = () => {
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path={process.env.PUBLIC_URL} element={<Profile />}/>
-                        <Route path='/profile*' element={<ProfileContainer />}/>
+                        <Route path='/profile' element={<ProfileContainer isMain={true}/>}/>
+                        <Route path='/profile/:userID' element={<ProfileContainer />}/>
                         <Route path='/news' element={<News />}/>
                         <Route path='/dialogs/*' element={<DialogsContainer />}/>
                         <Route path='/users' element={<UsersContainer />}/>
