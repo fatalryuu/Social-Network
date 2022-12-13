@@ -9,6 +9,7 @@ import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = () => {
     return (
@@ -19,7 +20,7 @@ const App = () => {
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path={process.env.PUBLIC_URL} element={<Profile />}/>
-                        <Route path='/profile' element={<Profile />}/>
+                        <Route path='/profile*' element={<ProfileContainer />}/>
                         <Route path='/news' element={<News />}/>
                         <Route path='/dialogs/*' element={<DialogsContainer />}/>
                         <Route path='/users' element={<UsersContainer />}/>
