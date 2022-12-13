@@ -8,7 +8,7 @@ class Users extends React.Component {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(40);
+                this.props.setTotalUsersCount(response.data.totalCount);
             });
     }
 
@@ -17,7 +17,7 @@ class Users extends React.Component {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(40);
+                this.props.setTotalUsersCount(response.data.totalCount);
             });
     }
 
@@ -36,7 +36,7 @@ class Users extends React.Component {
                 </div>
                 {this.props.users.map(u =>
                     <div key={u.id} className={s.item}>
-                        <a href=""><img src={avatar} alt="" className={s.avatar}/></a> {/*u.photos.small != null ? u.photos.small :*/}
+                        <a href=""><img src={u.photos.small != null ? u.photos.small : avatar} alt="" className={s.avatar}/></a>
                         <div>
                             <div className={s.name}>{u.name}</div>
                             <div className={s.btn_wrapper}>
