@@ -96,3 +96,15 @@
     color: white;
 }
 
+.selected_page {
+    font-weight: bold;
+}
+
+.selected_page:hover {
+    cursor: pointer;
+}
+
+.page:hover {
+    cursor: pointer;
+}
+
