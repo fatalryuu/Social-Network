@@ -8,3 +8,12 @@
     margin-left: 360px;
     width: 50px;
 }
+
+.login {
+    float: right;
+}
+
+.login a {
+    text-decoration: none;
+    color: white;
+}
