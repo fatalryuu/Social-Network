@@ -24,8 +24,8 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(this.props.isMain !== prevProps.isMain) {
-            if(this.props.isMain){
+        if (this.props.isMain !== prevProps.isMain) {
+            if (this.props.isMain) {
                 this.componentDidMount();
             }
         }
