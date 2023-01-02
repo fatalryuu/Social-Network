@@ -15,7 +15,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.info}>
                 <div className={s.name}>{props.profile.fullName}</div>
-                <ProfileStatus status="Hello"/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                 <div className={s.about}>{props.profile.aboutMe}</div>
                 {props.profile.lookingForAJob ? <div className={s.job}>{props.profile.lookingForAJobDescription}</div> : null}
             </div>
