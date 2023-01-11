@@ -1,35 +1,32 @@
 import React from 'react';
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
+import {useForm} from "react-hook-form";
 
 const MyPosts = (props) => {
+    const {register, handleSubmit} = useForm();
     let postsElements = props.posts.map(p => <Post message={p.message} likes={p.likesCount} key={p.id}/>)
 
-    let newPostElement = React.createRef()
-
-    let onAddPost = () => {
-        props.addPost();
-    }
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value
-        props.updateNewPostText(text);
+    const onSubmit = (d) => {
+        props.addPost(d.post);
     }
 
     return (
         <div className={s.postsBlock}>
             <h3 className={s.text}>My posts</h3>
-            <div className={s.newPost}>
-                <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}> </textarea>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className={s.newPost}>
+                    <div>
+                        <textarea {...register("post")}></textarea>
+                    </div>
+                    <div>
+                        <button>Add post</button>
+                    </div>
                 </div>
-                <div>
-                    <button onClick={onAddPost}>Add post</button>
+                <div className={s.posts}>
+                    {postsElements}
                 </div>
-            </div>
-            <div className={s.posts}>
-                {postsElements}
-            </div>
+            </form>
         </div>
     );
 };
