@@ -9,4 +9,4 @@ const News = () => {
     );
 };
 
-export default News;
+export default connect()(News);
