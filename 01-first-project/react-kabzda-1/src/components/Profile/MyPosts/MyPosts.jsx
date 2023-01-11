@@ -17,7 +17,7 @@ const MyPosts = (props) => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={s.newPost}>
                     <div>
-                        <textarea {...register("post")}></textarea>
+                        <textarea {...register("post", {required: true})}></textarea>
                     </div>
                     <div>
                         <button>Add post</button>

@@ -11,10 +11,10 @@ const Login = () => {
             <h1>Login</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <input placeholder={"Login"} {...register("login")}/>
+                    <input placeholder={"Login"} {...register("login", {required: true, maxLength: 20})}/>
                 </div>
                 <div>
-                    <input type={"password"} placeholder={"Password"} {...register("password")}/>
+                    <input type={"password"} placeholder={"Password"} {...register("password", {required: true})}/>
                 </div>
                 <div>
                     <input type="checkbox" {...register("remember")}/>Remember me

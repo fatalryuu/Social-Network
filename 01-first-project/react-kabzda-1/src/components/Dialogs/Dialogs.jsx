@@ -25,7 +25,7 @@ const Dialogs = (props) => {
                 <div>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div>
-                            <textarea placeholder='Enter your message' {...register("message")}></textarea>
+                            <textarea placeholder='Enter your message' {...register("message", {required: true, maxLength: 200})}></textarea>
                         </div>
                         <div>
                             <button>Send</button>
