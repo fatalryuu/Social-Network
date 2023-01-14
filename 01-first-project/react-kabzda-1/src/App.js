@@ -18,12 +18,10 @@ import withRouter from "./withRouter";
 
 class App extends React.Component {
     componentDidMount() {
-        debugger;
         this.props.initializeApp();
     }
 
     render() {
-        debugger;
         if (!this.props.initialized)
             return <Preloader />
         return (
