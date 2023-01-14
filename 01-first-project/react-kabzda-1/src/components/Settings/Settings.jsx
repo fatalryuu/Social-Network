@@ -1,5 +1,8 @@
 import React from 'react';
 import s from './Settings.module.css'
+import {compose} from "@reduxjs/toolkit";
+import {connect} from "react-redux";
+import withAuthRedirect from "../hoc/withAuthRedirect";
 
 const Settings = () => {
     return (
@@ -9,4 +12,6 @@ const Settings = () => {
     );
 };
 
-export default Settings;
+export default compose(
+    connect(null, null),
+    withAuthRedirect)(Settings);

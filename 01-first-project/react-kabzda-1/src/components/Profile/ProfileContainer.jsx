@@ -2,17 +2,9 @@ import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {getProfile, getStatus, updateStatus} from "../../redux/profileReducer";
-import {useParams} from 'react-router-dom'
 import withAuthRedirect from "../hoc/withAuthRedirect";
 import {compose} from "@reduxjs/toolkit";
-
-function withRouter(Children){
-    return(props)=>{
-
-        const match  = {params: useParams()};
-        return <Children {...props}  match = {match}/>
-    }
-}
+import withRouter from "../../withRouter";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
