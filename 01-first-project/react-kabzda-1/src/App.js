@@ -33,8 +33,8 @@ class App extends React.Component {
                     <div className='app-wrapper-content'>
                         <Suspense fallback={<Preloader/>}>
                             <Routes>
-                                <Route path={process.env.PUBLIC_URL} element={<ProfileContainer isMain={true}/>}/>
-                                <Route path='/profile' element={<ProfileContainer isMain={true}/>}/>
+                                <Route path={process.env.PUBLIC_URL} element={<ProfileContainer/>}/>
+                                <Route path='/profile' element={<ProfileContainer/>}/>
                                 <Route path='/profile/:userID' element={<ProfileContainer/>}/>
                                 <Route path='/news' element={<News/>}/>
                                 <Route path='/dialogs/*' element={<DialogsContainer/>}/>
