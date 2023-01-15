@@ -5,14 +5,14 @@ import {login, logout} from "../../redux/authReducer";
 import {Navigate} from "react-router-dom";
 import {mapStateToPropsFactory} from "react-redux/es/connect/mapStateToProps";
 
-const Login = (props) => {
+const Login = ({login, isAuth}) => {
     const {register, handleSubmit, setError, clearErrors, formState: {errors}, reset} = useForm({mode: "all"});
     const onSubmit = data => {
-        props.login(data.email, data.password, data.rememberMe, setError);
+        login(data.email, data.password, data.rememberMe, setError);
         reset();
     }
 
-    if (props.isAuth)
+    if (isAuth)
         return <Navigate to={'/profile'}/>
 
     return (

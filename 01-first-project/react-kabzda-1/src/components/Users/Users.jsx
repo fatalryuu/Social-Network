@@ -2,40 +2,18 @@ import React from 'react';
 import s from "./Users.module.css";
 import avatar from "../../img/user_avatar.jpg";
 import {NavLink} from "react-router-dom";
+import Paginator from "./Paginator";
+import User from "./User";
 
 const Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    let pages = [];
-
-    for (let i = 1; i <= pagesCount; i++)
-        pages.push(i);
-
     return (
         <div className={s.items}>
-            <div>
-                {pages.map(p => {
-                    return <span key={p} className={props.currentPage === p ? s.selected_page : s.page} onClick={() => props.onPageChanged(p)}>{p} </span>
-                })}
-            </div>
-            {props.users.map(u =>
-                <div key={u.id} className={s.item}>
-                    <NavLink to={'/profile/' + u.id}><img src={u.photos.small != null ? u.photos.small : avatar} alt=""
-                                                          className={s.avatar}/></NavLink>
-                    <div>
-                        <div className={s.name}>{u.name}</div>
-                        <div className={s.btn_wrapper}>
-                            {u.followed ?
-                                <button disabled={props.followingInProcess.some(id => id === u.id)} onClick={() => {
-                                    props.unfollow(u.id);
-                                }} className={s.followed}>Unfollow</button> :
-                                <button disabled={props.followingInProcess.some(id => id === u.id)} onClick={() => {
-                                    props.follow(u.id);
-                                }} className={s.unfollowed}>Follow</button>
-                            }
-                        </div>
-                        <div className={s.location}>{u.status != null ? u.status : 'BSUIR'}</div>
-                    </div>
-                </div>)
+            <Paginator totalUsersCount={props.totalUsersCount} pageSize={props.pageSize} currentPage={props.currentPage}
+                       onPageChanged={props.onPageChanged}/>
+            {props.users.map(u => <User id={u.id} name={u.name} photos={u.photos}
+                                        followingInProcess={props.followingInProcess} follow={props.follow}
+                                        unfollow={props.unfollow} status={u.status}
+                                        followed={u.followed}/>)
             }
             <div className={s.show_more}>
                 <a href="#" className={s.link}>Show More</a>
