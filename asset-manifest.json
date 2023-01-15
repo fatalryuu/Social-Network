@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/Social-Network/static/css/main.545808e2.css",
+    "main.js": "/Social-Network/static/js/main.6aa0266a.js",
+    "static/css/672.78a1e6a3.chunk.css": "/Social-Network/static/css/672.78a1e6a3.chunk.css",
+    "static/js/672.4ff82d17.chunk.js": "/Social-Network/static/js/672.4ff82d17.chunk.js",
+    "static/css/453.adca4639.chunk.css": "/Social-Network/static/css/453.adca4639.chunk.css",
+    "static/js/453.56c5073f.chunk.js": "/Social-Network/static/js/453.56c5073f.chunk.js",
+    "static/media/nastya.png": "/Social-Network/static/media/nastya.33ba2f51fec1690e98dc.png",
+    "static/media/profile_avatar.jpg": "/Social-Network/static/media/profile_avatar.a452d8edf63dc84023c9.jpg",
+    "static/media/nikita.jpg": "/Social-Network/static/media/nikita.6229c34d0bd6f5c54d8b.jpg",
+    "static/media/user_avatar.jpg": "/Social-Network/static/media/user_avatar.5ecc33fada389021d44f.jpg",
+    "static/media/post_avatar.png": "/Social-Network/static/media/post_avatar.884b5b68052ea553bbb7.png",
+    "static/media/arseniy.jpg": "/Social-Network/static/media/arseniy.440c9e8efd9183e47dc3.jpg",
+    "static/media/preloader.svg": "/Social-Network/static/media/preloader.3c541d2bac9e9232c0147f1fbb34d583.svg",
+    "index.html": "/Social-Network/index.html",
+    "main.545808e2.css.map": "/Social-Network/static/css/main.545808e2.css.map",
+    "main.6aa0266a.js.map": "/Social-Network/static/js/main.6aa0266a.js.map",
+    "672.78a1e6a3.chunk.css.map": "/Social-Network/static/css/672.78a1e6a3.chunk.css.map",
+    "672.4ff82d17.chunk.js.map": "/Social-Network/static/js/672.4ff82d17.chunk.js.map",
+    "453.adca4639.chunk.css.map": "/Social-Network/static/css/453.adca4639.chunk.css.map",
+    "453.56c5073f.chunk.js.map": "/Social-Network/static/js/453.56c5073f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.545808e2.css",
+    "static/js/main.6aa0266a.js"
+  ]
+}
