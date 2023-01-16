@@ -32,7 +32,7 @@ class App extends React.Component {
                     <div className='app-wrapper-content'>
                         <Suspense fallback={<Preloader/>}>
                             <Routes>
-                                <Route path={process.env.PUBLIC_URL} element={<ProfileContainer/>}/>
+                                <Route path='/' element={<ProfileContainer/>}/>
                                 <Route path='/profile' element={<ProfileContainer/>}/>
                                 <Route path='/profile/:userID' element={<ProfileContainer/>}/>
                                 <Route path='/news' element={<News/>}/>
