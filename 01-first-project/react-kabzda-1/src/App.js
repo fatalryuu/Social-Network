@@ -1,11 +1,10 @@
-import React, {Suspense, lazy, useEffect} from 'react'
+import React, {Suspense, lazy} from 'react'
 import './App.css';
-
 const DialogsContainer = lazy(() => import("./components/Dialogs/DialogsContainer"));
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {HashRouter, BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 const ProfileContainer = lazy(() => import("./components/Profile/ProfileContainer"));

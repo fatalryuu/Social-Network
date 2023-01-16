@@ -9,7 +9,6 @@ const Login = ({login, isAuth, captchaUrl}) => {
     const {register, handleSubmit, setError, clearErrors, formState: {errors}, reset} = useForm({mode: "all"});
     const onSubmit = data => {
         login(data.email, data.password, data.rememberMe, setError, data.captcha);
-        // reset();
     }
 
     if (isAuth)
