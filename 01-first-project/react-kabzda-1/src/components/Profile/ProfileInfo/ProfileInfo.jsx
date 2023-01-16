@@ -3,8 +3,6 @@ import s from './ProfileInfo.module.css'
 import avatar from '../../../img/user_avatar.jpg'
 import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
-import Contact from "./Contact/Contact";
-import {useForm} from "react-hook-form";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
 

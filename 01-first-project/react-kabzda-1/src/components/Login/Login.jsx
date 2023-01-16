@@ -3,6 +3,7 @@ import {useForm} from "react-hook-form";
 import {connect} from "react-redux";
 import {login, logout} from "../../redux/authReducer";
 import {Navigate} from "react-router-dom";
+import s from './Login.module.css'
 
 const Login = ({login, isAuth}) => {
     const {register, handleSubmit, setError, clearErrors, formState: {errors}, reset} = useForm({mode: "all"});
@@ -17,6 +18,11 @@ const Login = ({login, isAuth}) => {
     return (
         <div>
             <h1>Login</h1>
+            <div className={s.acc_info}>
+                <p>Для входа используйте тестовый аккаунт:</p>
+                <p>Email: testaccforsocialnetwork@gmail.com</p>
+                <p>Password: 1234554321</p>
+            </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <input placeholder={"Email"} onFocus={() => clearErrors()} {...register("email", {required: true, pattern: {
@@ -29,8 +35,9 @@ const Login = ({login, isAuth}) => {
                     <input type={"password"} onFocus={() => clearErrors()} placeholder={"Password"} {...register("password", {required: true, minLength: 8})}/>
                 </div>
                 {errors.password ? <div style={{color: 'red'}}>{errors.password.message}</div> : null}
-                <div>
-                    <input type="checkbox" {...register("rememberMe")}/>Remember me
+                <div className={s.remember_me}>
+                    <input type="checkbox" {...register("rememberMe")}/>
+                    Remember me
                 </div>
                 <div>
                     <button>Login</button>
