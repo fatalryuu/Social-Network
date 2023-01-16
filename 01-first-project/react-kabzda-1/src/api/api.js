@@ -39,7 +39,7 @@ export const profileAPI = {
     },
     updateStatus(status) {
         return instance
-            .put(`profile/status/`, {status: status})
+            .put(`profile/status/`, {status})
             .then(response => response.data);
     },
     savePhoto(photo) {
@@ -48,7 +48,12 @@ export const profileAPI = {
         return instance
             .put(`profile/photo/`, formData)
             .then(response => response.data);
-    }
+    },
+    saveProfileData(info) {
+        return instance
+            .put(`profile/`, info)
+            .then(response => response.data);
+    },
 }
 
 export const authAPI = {

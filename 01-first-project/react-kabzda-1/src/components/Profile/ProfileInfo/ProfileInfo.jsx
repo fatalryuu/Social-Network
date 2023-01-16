@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './ProfileInfo.module.css'
 import avatar from '../../../img/user_avatar.jpg'
 import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
+import Contact from "./Contact/Contact";
+import {useForm} from "react-hook-form";
+import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
+import ProfileData from "./ProfileData/ProfileData";
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfileInfo}) => {
+    let [editMode, setEditMode] = useState(false);
+
     if (!profile) {
-        return <Preloader />
+        return <Preloader/>
     }
 
     const onAvatarSelected = (e) => {
@@ -25,8 +31,8 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
             <div className={s.info}>
                 <div className={s.name}>{profile.fullName}</div>
                 <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
-                <div className={s.about}>{profile.aboutMe}</div>
-                {profile.lookingForAJob ? <div className={s.job}>{profile.lookingForAJobDescription}</div> : null}
+                {editMode ? <ProfileDataForm profile={profile} setEditMode={setEditMode} saveProfileInfo={saveProfileInfo}/> :
+                    <ProfileData profile={profile} isOwner={isOwner} goToEditMode={() => setEditMode(true)}/>}
             </div>
         </div>
     );

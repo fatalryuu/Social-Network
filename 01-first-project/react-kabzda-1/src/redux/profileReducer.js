@@ -1,10 +1,11 @@
 import {profileAPI} from "../api/api";
 
-const ADD_POST = 'ADD_POST';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const SET_STATUS = 'SET_STATUS';
-const DELETE_POST = 'DELETE_POST';
-const SAVE_PHOTO_SUCCESS  = 'SAVE_PHOTO_SUCCESS';
+const ADD_POST = 'profile/ADD_POST';
+const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
+const SET_STATUS = 'profile/SET_STATUS';
+const DELETE_POST = 'profile/DELETE_POST';
+const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS';
+const SAVE_PROFILE_INFO_SUCCESS = 'profile/SAVE_PROFILE_INFO_SUCCESS';
 
 let initialState = {
     posts: [
@@ -42,6 +43,16 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 profile: {...state.profile, photos: action.photos}
             }
+        case SAVE_PROFILE_INFO_SUCCESS:
+            return {
+                ...state,
+                profile: {
+                    ...state.profile,
+                    aboutMe: action.data.aboutMe,
+                    lookingForAJob: action.data.lookingForAJob,
+                    lookingForAJobDescription: action.data.lookingForAJobDescription
+                }
+            }
         default:
             return state;
     }
@@ -52,6 +63,8 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_STATUS, status});
 export const deletePost = (postID) => ({type: DELETE_POST, postID});
 export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos});
+export const saveProfileInfoSuccess = (data) => ({type: SAVE_PROFILE_INFO_SUCCESS, data});
+
 export const getProfile = (userID) => async (dispatch) => {
     let data = await profileAPI.getProfile(userID);
     dispatch(setUserProfile(data));
@@ -69,5 +82,12 @@ export const savePhoto = (photo) => async (dispatch) => {
     let data = await profileAPI.savePhoto(photo);
     if (data.resultCode === 0)
         dispatch(savePhotoSuccess(data.data.photos));
+}
+export const saveProfileInfo = (info) => async (dispatch, getState) => {
+    const userID = getState().auth.userID;
+    const data = await profileAPI.saveProfileData(info);
+    if (data.resultCode === 0)
+        dispatch(getProfile(userID));
+        //dispatch(saveProfileInfoSuccess(data.data));
 }
 export default profileReducer

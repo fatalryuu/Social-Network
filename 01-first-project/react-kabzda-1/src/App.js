@@ -5,7 +5,7 @@ const DialogsContainer = lazy(() => import("./components/Dialogs/DialogsContaine
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, BrowserRouter, Route, Routes} from "react-router-dom";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 const ProfileContainer = lazy(() => import("./components/Profile/ProfileContainer"));
@@ -26,7 +26,7 @@ class App extends React.Component {
         if (!this.props.initialized)
             return <Preloader/>
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div className='app-wrapper'>
                     <HeaderContainer/>
                     <SidebarContainer/>
@@ -46,7 +46,7 @@ class App extends React.Component {
                         </Suspense>
                     </div>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         )
     };
 }

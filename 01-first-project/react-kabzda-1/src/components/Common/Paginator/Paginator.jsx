@@ -16,6 +16,10 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, porti
     return (
         <div className={s.paginator}>
             {portionNumber > 1 ? <button onClick={() => {
+                setPortionNumber(1)
+            }}>FIRST
+            </button> : null}
+            {portionNumber > 1 ? <button onClick={() => {
                 setPortionNumber(portionNumber - 1)
             }}>PREV
             </button> : null}
@@ -28,6 +32,9 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, porti
             {portionCount > portionNumber ? <button onClick={() => {
                 setPortionNumber(portionNumber + 1)
             }}>NEXT</button> : null}
+            {portionCount > portionNumber ? <button onClick={() =>
+                setPortionNumber(portionCount)
+            }>LAST</button> : null}
         </div>
     );
 };

@@ -3,7 +3,6 @@ import {useForm} from "react-hook-form";
 import {connect} from "react-redux";
 import {login, logout} from "../../redux/authReducer";
 import {Navigate} from "react-router-dom";
-import {mapStateToPropsFactory} from "react-redux/es/connect/mapStateToProps";
 
 const Login = ({login, isAuth}) => {
     const {register, handleSubmit, setError, clearErrors, formState: {errors}, reset} = useForm({mode: "all"});
