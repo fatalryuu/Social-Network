@@ -15,7 +15,7 @@ import {compose} from "@reduxjs/toolkit";
 import {initializeApp} from "./redux/app-reducer";
 import {connect} from "react-redux";
 import Preloader from "./components/Common/Preloader/Preloader";
-import withRouter from "./withRouter";
+import withRouter from "./utils/withRouter";
 
 class App extends React.Component {
     componentDidMount() {
@@ -26,7 +26,7 @@ class App extends React.Component {
         if (!this.props.initialized)
             return <Preloader/>
         return (
-            <HashRouter>
+            <BrowserRouter>
                 <div className='app-wrapper'>
                     <HeaderContainer/>
                     <SidebarContainer/>
@@ -46,7 +46,7 @@ class App extends React.Component {
                         </Suspense>
                     </div>
                 </div>
-            </HashRouter>
+            </BrowserRouter>
         )
     };
 }

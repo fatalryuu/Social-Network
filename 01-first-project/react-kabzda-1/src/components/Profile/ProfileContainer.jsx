@@ -4,13 +4,13 @@ import {connect} from "react-redux";
 import {getProfile, getStatus, savePhoto, saveProfileInfo, updateStatus} from "../../redux/profileReducer";
 import withAuthRedirect from "../HOC/withAuthRedirect";
 import {compose} from "@reduxjs/toolkit";
-import withRouter from "../../withRouter";
+import withRouter from "../../utils/withRouter";
 
 class ProfileContainer extends React.Component {
     refreshProfile() {
         let userID = this.props.match.params.userID;
         if (!userID)
-            userID = 27094;  //27510
+            userID = 27510;  //27094
         this.props.getProfile(userID);
         this.props.getStatus(userID);
     }
