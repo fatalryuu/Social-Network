@@ -28,7 +28,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
             </div>
             <div className={s.info}>
                 <div className={s.name}>{profile.fullName}</div>
-                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus} isOwner={isOwner}/>
                 {editMode ? <ProfileDataForm profile={profile} setEditMode={setEditMode} saveProfileInfo={saveProfileInfo}/> :
                     <ProfileData profile={profile} isOwner={isOwner} goToEditMode={() => setEditMode(true)}/>}
             </div>
