@@ -18,7 +18,7 @@ const User = ({id, name, photos, followingInProcess, follow, unfollow, status, f
                                 onClick={() => follow(id)} className={s.unfollowed}>Follow</button>
                     }
                 </div>
-                <div className={s.location}>{status != null ? status : 'BSUIR'}</div>
+                <div className={s.status}>{status != null ? status : 'No status'}</div>
             </div>
         </div>
     );

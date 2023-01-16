@@ -80,8 +80,9 @@
     background-color: #4c4c4c;
 }
 
-.location {
+.status {
     color: #adadad;
+    width: 300px;
     margin-left: 15px;
 }
 
