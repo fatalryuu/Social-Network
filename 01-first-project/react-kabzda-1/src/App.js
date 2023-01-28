@@ -15,6 +15,7 @@ import {initializeApp} from "./redux/appReducer.ts";
 import {connect} from "react-redux";
 import Preloader from "./components/Common/Preloader/Preloader";
 import withRouter from "./utils/withRouter";
+import Page from "./components/Common/Page/Page";
 
 class App extends React.Component {
     componentDidMount() {
@@ -32,15 +33,15 @@ class App extends React.Component {
                     <div className='app-wrapper-content'>
                         <Suspense fallback={<Preloader/>}>
                             <Routes>
-                                <Route path='/Social-Network' element={<ProfileContainer/>}/>
-                                <Route path='/profile' element={<ProfileContainer/>}/>
-                                <Route path='/profile/:userID' element={<ProfileContainer/>}/>
-                                <Route path='/news' element={<News/>}/>
-                                <Route path='/dialogs/*' element={<DialogsContainer/>}/>
-                                <Route path='/users' element={<UsersContainer/>}/>
-                                <Route path='/music' element={<Music/>}/>
-                                <Route path='/settings' element={<Settings/>}/>
-                                <Route path='/login' element={<Login/>}/>
+                                <Route path='/Social-Network' element={<Page title="Main"><ProfileContainer/></Page>}/>
+                                <Route path='/profile' element={<Page title="Profile"><ProfileContainer/></Page>}/>
+                                <Route path='/profile/:userID' element={<Page title="Profile"><ProfileContainer/></Page>}/>
+                                <Route path='/news' element={<Page title="News"><News/></Page>}/>
+                                <Route path='/dialogs/*' element={<Page title="Dialogs"><DialogsContainer/></Page>}/>
+                                <Route path='/users' element={<Page title="Users"><UsersContainer/></Page>}/>
+                                <Route path='/music' element={<Page title="Music"><Music/></Page>}/>
+                                <Route path='/settings' element={<Page title="Settings"><Settings/></Page>}/>
+                                <Route path='/login' element={<Page title="Login"><Login/></Page>}/>
                             </Routes>
                         </Suspense>
                     </div>
