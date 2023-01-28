@@ -11,7 +11,7 @@ const ProfileContainer = lazy(() => import("./components/Profile/ProfileContaine
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {compose} from "@reduxjs/toolkit";
-import {initializeApp} from "./redux/app-reducer";
+import {initializeApp} from "./redux/appReducer.ts";
 import {connect} from "react-redux";
 import Preloader from "./components/Common/Preloader/Preloader";
 import withRouter from "./utils/withRouter";
@@ -32,7 +32,7 @@ class App extends React.Component {
                     <div className='app-wrapper-content'>
                         <Suspense fallback={<Preloader/>}>
                             <Routes>
-                                <Route path='/' element={<ProfileContainer/>}/>
+                                <Route path='/Social-Network' element={<ProfileContainer/>}/>
                                 <Route path='/profile' element={<ProfileContainer/>}/>
                                 <Route path='/profile/:userID' element={<ProfileContainer/>}/>
                                 <Route path='/news' element={<News/>}/>

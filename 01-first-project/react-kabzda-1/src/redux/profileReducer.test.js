@@ -1,4 +1,4 @@
-import profileReducer, {addPostActionCreator, deletePost} from "./profileReducer";
+import profileReducer, {addPost, deletePost} from "./profileReducer";
 
 let state = {
     posts: [
@@ -10,13 +10,13 @@ let state = {
 }
 
 it('length of posts should be 3', () => {
-    let action = addPostActionCreator('some text');
+    let action = addPost('some text');
     let newState = profileReducer(state, action);
     expect(newState.posts.length).toBe(3);
 })
 
 it('message of posts should be \'love n\'', () => {
-    let action = addPostActionCreator('love n');
+    let action = addPost('love n');
     let newState = profileReducer(state, action);
     expect(newState.posts[2].message).toBe('love n');
 })

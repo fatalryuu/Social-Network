@@ -4,11 +4,12 @@ import Post from "./Post/Post";
 import {useForm} from "react-hook-form";
 
 const MyPosts = ({posts, addPost}) => {
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, reset} = useForm();
     let postsElements = posts.map(p => <Post message={p.message} likes={p.likesCount} key={p.id}/>)
 
     const onSubmit = (d) => {
         addPost(d.post);
+        reset();
     }
 
     return (

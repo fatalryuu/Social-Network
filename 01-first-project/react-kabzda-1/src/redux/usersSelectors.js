@@ -1,31 +1,32 @@
-import {createSelector} from "@reduxjs/toolkit";
-
-export const getUsersSelector = (state) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getFollowingInProcess = exports.getIsFetching = exports.getCurrentPage = exports.getTotalUsersCount = exports.getPageSize = exports.getUsers = exports.getUsersSelector = void 0;
+var toolkit_1 = require("@reduxjs/toolkit");
+var getUsersSelector = function (state) {
     return state.usersPage.users;
-}
-
-export const getUsers = createSelector(getUsersSelector, (users) => {
-    return users.filter(u => true);
+};
+exports.getUsersSelector = getUsersSelector;
+exports.getUsers = (0, toolkit_1.createSelector)(exports.getUsersSelector, function (users) {
+    return users.filter(function (u) { return true; });
 });
-
-export const getPageSize = (state) => {
+var getPageSize = function (state) {
     return state.usersPage.pageSize;
-}
-
-export const getTotalUsersCount = (state) => {
+};
+exports.getPageSize = getPageSize;
+var getTotalUsersCount = function (state) {
     return state.usersPage.totalUsersCount;
-}
-
-export const getCurrentPage = (state) => {
+};
+exports.getTotalUsersCount = getTotalUsersCount;
+var getCurrentPage = function (state) {
     return state.usersPage.currentPage;
-}
-
-export const getIsFetching = (state) => {
+};
+exports.getCurrentPage = getCurrentPage;
+var getIsFetching = function (state) {
     return state.usersPage.isFetching;
-}
-
-export const getFollowingInProcess = (state) => {
+};
+exports.getIsFetching = getIsFetching;
+var getFollowingInProcess = function (state) {
     return state.usersPage.followingInProcess;
-}
-
-
+};
+exports.getFollowingInProcess = getFollowingInProcess;
+//# sourceMappingURL=usersSelectors.js.map

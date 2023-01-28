@@ -24,7 +24,7 @@ const Sidebar = (props) => {
             <div className={s.item}>
                 <NavLink to="/settings" className = {({isActive}) => isActive ? s.active : s.item}>Settings</NavLink>
             </div>
-            <OnlineFriends friends={props.friends} />
+            {/*<OnlineFriends friends={props.friends} />*/}
         </nav>
     );
 }
