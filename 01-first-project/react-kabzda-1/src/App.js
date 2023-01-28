@@ -33,7 +33,7 @@ class App extends React.Component {
                     <div className='app-wrapper-content'>
                         <Suspense fallback={<Preloader/>}>
                             <Routes>
-                                <Route path='/Social-Network' element={<Page title="Main"><ProfileContainer/></Page>}/>
+                                <Route path='/Social-Network' element={<Page title="Profile"><ProfileContainer/></Page>}/>
                                 <Route path='/profile' element={<Page title="Profile"><ProfileContainer/></Page>}/>
                                 <Route path='/profile/:userID' element={<Page title="Profile"><ProfileContainer/></Page>}/>
                                 <Route path='/news' element={<Page title="News"><News/></Page>}/>
