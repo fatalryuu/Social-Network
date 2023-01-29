@@ -3,16 +3,23 @@ import s from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {useForm} from "react-hook-form";
+import {InitialStateType} from "../../redux/dialogsReducer";
 
-const Dialogs = (props) => {
-    const {register, handleSubmit} = useForm();
+type PropsType = {
+    dialogsPage: InitialStateType
+    sendMessageCreator: (newMessageBody: string) => void
+}
+
+const Dialogs: React.FC<PropsType> = (props) => {
+    const {register, handleSubmit, reset} = useForm();
     let state = props.dialogsPage;
 
     let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d.id}/>)
     let messagesElements = state.messages.map(m => <Message message={m.message} key={m.id}/>)
 
-    const onSubmit = (d) => {
-        props.sendMessage(d.message);
+    const onSubmit = (d: any) => {
+        props.sendMessageCreator(d.message);
+        reset();
     }
 
     return (

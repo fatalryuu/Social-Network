@@ -1,14 +1,6 @@
+import {DialogType, MessageType} from "../types/types";
+
 const SEND_MESSAGE = 'dialogs/SEND-MESSAGE';
-
-type DialogType = {
-    id: number
-    name: string
-}
-
-type MessageType = {
-    id: number
-    message: string
-}
 
 let initialState = {
     dialogs: [
@@ -31,10 +23,9 @@ export type InitialStateType = typeof initialState;
 const dialogsReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case SEND_MESSAGE:
-            let body = action.newMessageBody;
             return  {
                 ...state,
-                messages: [...state.messages, {id: 4, message: body}],
+                messages: [...state.messages, {id: state.messages.length + 1, message: action.newMessageBody}]
             };
         default:
             return state;
