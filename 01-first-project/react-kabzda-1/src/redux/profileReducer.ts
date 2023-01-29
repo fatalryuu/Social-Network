@@ -44,7 +44,7 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
         case SAVE_PHOTO_SUCCESS:
             return {
                 ...state,
-                profile: {...state.profile, photos: action.photos}
+                profile: {...state.profile, photos: action.photos} as ProfileType
             }
         case SAVE_PROFILE_INFO_SUCCESS:
             return {
@@ -54,7 +54,7 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
                     aboutMe: action.profileInfo.aboutMe,
                     lookingForAJob: action.profileInfo.lookingForAJob,
                     lookingForAJobDescription: action.profileInfo.lookingForAJobDescription
-                }
+                } as ProfileType
             }
         default:
             return state;

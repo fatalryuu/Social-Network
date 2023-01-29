@@ -141,7 +141,7 @@ const followUnfollowFlow = async (dispatch: any, userID: number, apiMethod: any,
 export const follow = (userID: number) => async (dispatch: any) => {
     followUnfollowFlow(dispatch, userID, usersAPI.follow, followSuccess);
 }
-export const unfollow = (userID: any) => async (dispatch: any) => {
+export const unfollow = (userID: number) => async (dispatch: any) => {
     followUnfollowFlow(dispatch, userID, usersAPI.unfollow, unfollowSuccess);
 }
 

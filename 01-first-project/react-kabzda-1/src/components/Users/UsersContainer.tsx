@@ -3,11 +3,10 @@ import {connect} from 'react-redux';
 import {
     follow,
     requestUsers,
-    setCurrentPage,
     unfollow,
-} from '../../redux/usersReducer.ts';
+} from '../../redux/usersReducer';
 import Users from './Users';
-import Preloader from "../Common/Preloader/Preloader";
+import Preloader from '../Common/Preloader/Preloader';
 import withAuthRedirect from "../HOC/withAuthRedirect";
 import {compose} from "@reduxjs/toolkit";
 import {
@@ -17,15 +16,34 @@ import {
     getPageSize,
     getTotalUsersCount,
     getUsers
-} from "../../redux/usersSelectors.ts";
+} from "../../redux/usersSelectors";
+import {UserType} from "../../types/types";
+import {AppStateType} from "../../redux/redux-store";
 
-class UsersContainer extends React.Component {
+type MapStatePropsType = {
+    currentPage: number
+    pageSize: number
+    isFetching: boolean
+    totalUsersCount: number
+    followingInProcess: Array<number>
+    users: Array<UserType>
+}
+
+type MapDispatchPropsType = {
+    requestUsers: (currentPage: number, pageSize: number) => void
+    follow: (userID: number) => void
+    unfollow: (userID: number) => void
+}
+
+type PropsType = MapStatePropsType & MapDispatchPropsType
+
+class UsersContainer extends React.Component<PropsType> {
     componentDidMount() {
         const {currentPage, pageSize, requestUsers} = this.props;
         requestUsers(currentPage, pageSize);
     }
 
-    onPageChanged = (page) => {
+    onPageChanged = (page: number) => {
         const {pageSize, requestUsers} = this.props;
         requestUsers(page, pageSize);
     }
@@ -47,7 +65,7 @@ class UsersContainer extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         users: getUsers(state),
         pageSize: getPageSize(state),
@@ -58,6 +76,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default compose(
-    connect(mapStateToProps, {follow, unfollow, setCurrentPage, requestUsers}),
+export default compose<React.Component>(
+    connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {follow, unfollow, requestUsers}),
     withAuthRedirect)(UsersContainer);
