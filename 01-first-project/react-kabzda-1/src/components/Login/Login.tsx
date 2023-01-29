@@ -1,14 +1,28 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
 import {connect} from "react-redux";
-import {login} from "../../redux/authReducer.ts";
+import {login} from "../../redux/authReducer";
 import {Navigate} from "react-router-dom";
 import s from './Login.module.css'
+import {AppStateType} from "../../redux/redux-store";
 
-const Login = ({login, isAuth, captchaUrl}) => {
+type PropsType = MapStatePropsType & MapDispatchPropsType;
+
+type MapStatePropsType = {
+    isAuth: boolean
+    captchaUrl: string | null
+}
+
+type MapDispatchPropsType = {
+    login: (email: string, password: string, rememberMe: boolean, setError: any, captcha: boolean) => void
+}
+
+const Login: React.FC<PropsType> = (props) => {
+    const {isAuth, captchaUrl, login} = props;
     const {register, handleSubmit, setError, clearErrors, formState: {errors}, reset} = useForm({mode: "all"});
-    const onSubmit = data => {
+    const onSubmit = (data: any) => {
         login(data.email, data.password, data.rememberMe, setError, data.captcha);
+        reset({captcha: '', password: ''});
     }
 
     if (isAuth)
@@ -31,12 +45,10 @@ const Login = ({login, isAuth, captchaUrl}) => {
                         }
                     })}/>
                 </div>
-                {errors.email ? <div style={{color: 'red'}}>{errors.email.message}</div> : null}
                 <div>
                     <input type={"password"} onFocus={() => clearErrors()}
                            placeholder={"Password"} {...register("password", {required: true, minLength: 8})}/>
                 </div>
-                {errors.password ? <div style={{color: 'red'}}>{errors.password.message}</div> : null}
                 <div className={s.remember_me}>
                     <input type="checkbox" {...register("rememberMe")}/>
                     Remember me
@@ -49,17 +61,17 @@ const Login = ({login, isAuth, captchaUrl}) => {
                 <div>
                     <button>Login</button>
                 </div>
-                {errors.server ? <div style={{color: 'red'}}>{errors.server.message}</div> : null}
+                {errors.server ? <div style={{color: 'red'}}>Incorrect data</div> : null}
             </form>
         </div>
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         isAuth: state.auth.isAuth,
         captchaUrl: state.auth.captchaUrl
     }
 }
 
-export default connect(mapStateToProps, {login})(Login);
+export default connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {login})(Login);
