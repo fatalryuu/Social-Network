@@ -2,11 +2,19 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import s from "../ProfileInfo.module.css";
 import ContactForm from "../ContactForm/ContactForm";
+import {ProfileType} from "../../../../types/types";
 
-const ProfileDataForm = ({profile, setEditMode, saveProfileInfo}) => {
+type PropsType = {
+    profile: ProfileType
+    setEditMode: (editMode: boolean) => void
+    saveProfileInfo: (info: ProfileType) => any
+}
+
+const ProfileDataForm: React.FC<PropsType> = ({profile, setEditMode, saveProfileInfo}) => {
     const {register, handleSubmit} = useForm();
-    const onSubmit = (d) => {
-        d["fullName"] = profile.fullName;
+    const onSubmit = (d: any) => {
+        if (profile)
+            d["fullName"] = profile.fullName;
         saveProfileInfo(d)
             .then(() => setEditMode(false));
     }
@@ -32,7 +40,7 @@ const ProfileDataForm = ({profile, setEditMode, saveProfileInfo}) => {
                            onBlur={() => {
                            }} placeholder={'Soft skills'}/>
                 </div>
-                {Object.keys(profile.contacts).map(key => <ContactForm register={register} key={key} contactTitle={key}
+                {(Object.keys(profile.contacts) as Array<keyof typeof profile.contacts>).map(key => <ContactForm register={register} key={key} contactTitle={key}
                                                                    contactValue={profile.contacts[key]}/>)}
                 <button>Done</button>
             </form>

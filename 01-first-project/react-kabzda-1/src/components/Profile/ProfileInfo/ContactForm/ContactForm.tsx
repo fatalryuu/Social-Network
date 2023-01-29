@@ -1,6 +1,12 @@
 import React from 'react';
 
-const ContactForm = ({contactTitle, contactValue, register}) => {
+type PropsType = {
+    contactTitle: string
+    contactValue: string
+    register: any
+}
+
+const ContactForm: React.FC<PropsType> = ({contactTitle, contactValue, register}) => {
     return (
         <div>
             <b>{contactTitle}: </b>

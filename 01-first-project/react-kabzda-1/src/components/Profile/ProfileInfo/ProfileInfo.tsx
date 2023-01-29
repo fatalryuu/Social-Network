@@ -5,15 +5,25 @@ import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
+import {ProfileType} from "../../../types/types";
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfileInfo}) => {
+type PropsType = {
+    profile: ProfileType | null
+    status: string | null
+    updateStatus: (status: string | null) => void
+    isOwner: boolean
+    savePhoto: (photo: any) => void
+    saveProfileInfo: (info: ProfileType) => void
+}
+
+const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus, isOwner, savePhoto, saveProfileInfo}) => {
     let [editMode, setEditMode] = useState(false);
 
     if (!profile) {
         return <Preloader/>
     }
 
-    const onAvatarSelected = (e) => {
+    const onAvatarSelected = (e: any) => {
         if (e.target.files.length)
             savePhoto(e.target.files[0]);
     }
