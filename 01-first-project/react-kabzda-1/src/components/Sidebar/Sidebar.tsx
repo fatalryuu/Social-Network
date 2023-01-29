@@ -1,9 +1,12 @@
 import React from 'react';
 import s from './Sidebar.module.css'
 import {NavLink} from "react-router-dom";
-import OnlineFriends from "./Friends/OnlineFriends";
 
-const Sidebar = (props) => {
+type PropsType = {
+
+}
+
+const Sidebar: React.FC<PropsType> = () => {
     return (
         <nav className={s.nav}>
             <div className={s.item}>
@@ -24,7 +27,6 @@ const Sidebar = (props) => {
             <div className={s.item}>
                 <NavLink to="/settings" className = {({isActive}) => isActive ? s.active : s.item}>Settings</NavLink>
             </div>
-            {/*<OnlineFriends friends={props.friends} />*/}
         </nav>
     );
 }

@@ -1,10 +1,10 @@
 import {useParams} from "react-router-dom";
 import React from "react";
 
-const withRouter = (Children) => {
-    return (props) => {
+const withRouter = (Children: any) => {
+    return (props: any) => {
         const match  = {params: useParams()};
-        return <Children {...props}  match = {match}/>
+        return <Children {...props}  match={match}/>
     }
 }
 

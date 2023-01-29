@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {login} from "../../redux/authReducer";
 import {Navigate} from "react-router-dom";
 import s from './Login.module.css'
-import {AppStateType} from "../../redux/redux-store";
+import {AppStateType} from "../../redux/store";
 
 type PropsType = MapStatePropsType & MapDispatchPropsType;
 

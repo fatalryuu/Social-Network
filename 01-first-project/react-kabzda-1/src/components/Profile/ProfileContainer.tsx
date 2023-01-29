@@ -4,8 +4,8 @@ import {connect} from "react-redux";
 import {getProfile, getStatus, savePhoto, saveProfileInfo, updateStatus} from "../../redux/profileReducer";
 import withAuthRedirect from "../HOC/withAuthRedirect";
 import {compose} from "@reduxjs/toolkit";
-import withRouter from "../../utils/withRouter";
-import {AppStateType} from "../../redux/redux-store";
+import withRouter from "../Common/withRouter/withRouter";
+import {AppStateType} from "../../redux/store";
 import {ProfileType} from "../../types/types";
 import {useParams} from "react-router-dom";
 

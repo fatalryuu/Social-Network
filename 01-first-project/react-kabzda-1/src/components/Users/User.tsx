@@ -2,8 +2,20 @@ import React from 'react';
 import s from "./Users.module.css";
 import avatar from "../../img/user_avatar.jpg";
 import {NavLink} from "react-router-dom";
+import {PhotosType, UserType} from "../../types/types";
 
-const User = ({id, name, photos, followingInProcess, follow, unfollow, status, followed}) => {
+type PropsType = {
+    id: number
+    name: string
+    photos: PhotosType
+    status: string
+    followed: boolean
+    followingInProcess: Array<number>
+    follow: (userID: number) => void
+    unfollow: (userID: number) => void
+}
+
+const User: React.FC<PropsType> = ({id, name, photos, followingInProcess, follow, unfollow, status, followed}) => {
     return (
         <div key={id} className={s.item}>
             <NavLink to={'/profile/' + id}><img src={photos.small != null ? photos.small : avatar} alt=""

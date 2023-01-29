@@ -18,7 +18,7 @@ import {
     getUsers
 } from "../../redux/usersSelectors";
 import {UserType} from "../../types/types";
-import {AppStateType} from "../../redux/redux-store";
+import {AppStateType} from "../../redux/store";
 
 type MapStatePropsType = {
     currentPage: number

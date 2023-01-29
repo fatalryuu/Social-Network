@@ -1,23 +1,37 @@
 import React, {Suspense, lazy} from 'react'
 import './App.css';
-const DialogsContainer = lazy(() => import("./components/Dialogs/DialogsContainer"));
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import SidebarContainer from "./components/Sidebar/SidebarContainer";
+import Sidebar from "./components/Sidebar/Sidebar";
 import UsersContainer from "./components/Users/UsersContainer";
-const ProfileContainer = lazy(() => import("./components/Profile/ProfileContainer"));
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {compose} from "@reduxjs/toolkit";
-import {initializeApp} from "./redux/appReducer.ts";
+import {initializeApp} from "./redux/appReducer";
 import {connect} from "react-redux";
 import Preloader from "./components/Common/Preloader/Preloader";
-import withRouter from "./utils/withRouter";
+import withRouter from "./components/Common/withRouter/withRouter";
 import Page from "./components/Common/Page/Page";
+import {AppStateType} from "./redux/store";
 
-class App extends React.Component {
+//@ts-ignore
+const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
+//@ts-ignore
+const ProfileContainer = lazy(() => import("./components/Profile/ProfileContainer"));
+
+type PropsType = MapStatePropsType & MapDispatchPropsType;
+
+type MapStatePropsType = {
+    initialized: boolean
+}
+
+type MapDispatchPropsType = {
+    initializeApp: () => void
+}
+
+class App extends React.Component<PropsType> {
     componentDidMount() {
         this.props.initializeApp();
     }
@@ -28,8 +42,9 @@ class App extends React.Component {
         return (
             <BrowserRouter>
                 <div className='app-wrapper'>
+                    {/*//@ts-ignore*/}
                     <HeaderContainer/>
-                    <SidebarContainer/>
+                    <Sidebar/>
                     <div className='app-wrapper-content'>
                         <Suspense fallback={<Preloader/>}>
                             <Routes>
@@ -38,6 +53,7 @@ class App extends React.Component {
                                 <Route path='/profile/:userID' element={<Page title="Profile"><ProfileContainer/></Page>}/>
                                 <Route path='/news' element={<Page title="News"><News/></Page>}/>
                                 <Route path='/dialogs/*' element={<Page title="Dialogs"><DialogsContainer/></Page>}/>
+                                {/*//@ts-ignore*/}
                                 <Route path='/users' element={<Page title="Users"><UsersContainer/></Page>}/>
                                 <Route path='/music' element={<Page title="Music"><Music/></Page>}/>
                                 <Route path='/settings' element={<Page title="Settings"><Settings/></Page>}/>
@@ -51,12 +67,12 @@ class App extends React.Component {
     };
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         initialized: state.app.initialized
     }
 }
 
-export default compose(
+export default compose<React.Component>(
     withRouter,
-    connect(mapStateToProps, {initializeApp}))(App);
+    connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {initializeApp}))(App);
