@@ -2,12 +2,18 @@ import React from 'react';
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 import {useForm} from "react-hook-form";
+import {PostType} from "../../../types/types";
 
-const MyPosts = ({posts, addPost}) => {
+type PropsType = {
+    posts: Array<PostType>
+    addPost: (newPostText: string) => void
+}
+
+const MyPosts: React.FC<PropsType> = ({posts, addPost}) => {
     const {register, handleSubmit, reset} = useForm();
     let postsElements = posts.map(p => <Post message={p.message} likes={p.likesCount} key={p.id}/>)
 
-    const onSubmit = (d) => {
+    const onSubmit = (d: any) => {
         addPost(d.post);
         reset();
     }
