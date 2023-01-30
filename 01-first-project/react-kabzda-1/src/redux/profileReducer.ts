@@ -127,7 +127,7 @@ export const updateStatus = (status: string): ThunkType => async (dispatch) => {
 export const savePhoto = (photo: any): ThunkType => async (dispatch) => {
     let data = await profileAPI.savePhoto(photo);
     if (data.resultCode === 0)
-        dispatch(savePhotoSuccess(data.data.photos));
+        dispatch(savePhotoSuccess(data.data));
 }
 export const saveProfileInfo = (info: ProfileType): ThunkType => async (dispatch, getState) => {
     const userID = getState().auth.userID;

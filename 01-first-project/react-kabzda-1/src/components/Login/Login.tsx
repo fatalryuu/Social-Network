@@ -14,7 +14,7 @@ type MapStatePropsType = {
 }
 
 type MapDispatchPropsType = {
-    login: (email: string, password: string, rememberMe: boolean, setError: any, captcha: boolean) => void
+    login: (email: string, password: string, rememberMe: boolean, setError: any, captcha: string) => void
 }
 
 const Login: React.FC<PropsType> = (props) => {
