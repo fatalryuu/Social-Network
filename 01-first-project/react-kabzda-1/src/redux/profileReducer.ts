@@ -21,7 +21,7 @@ let initialState = {
 
 export type InitialStateType = typeof initialState;
 
-const profileReducer = (state = initialState, action: ActionTypes): InitialStateType => {
+const profileReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case 'profile/ADD_POST':
             return {
@@ -63,7 +63,7 @@ const profileReducer = (state = initialState, action: ActionTypes): InitialState
     }
 }
 
-type ActionTypes = InferActionsTypes<typeof actions>;
+type ActionsTypes = InferActionsTypes<typeof actions>;
 
 export const actions = {
     addPost: (newPostText: string) => ({type: 'profile/ADD_POST', newPostText} as const),
@@ -72,9 +72,9 @@ export const actions = {
     deletePost: (postID: number) => ({type: 'profile/DELETE_POST', postID} as const),
     savePhotoSuccess: (photos: PhotosType) => ({type: 'profile/SAVE_PHOTO_SUCCESS', photos} as const),
     saveProfileInfoSuccess: (profileInfo: ProfileType) => ({type: 'profile/SAVE_PROFILE_INFO_SUCCESS', profileInfo} as const)
-}
+};
 
-type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionTypes>;
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>;
 
 export const getProfile = (userID: number): ThunkType => async (dispatch) => {
     let data = await profileAPI.getProfile(userID);

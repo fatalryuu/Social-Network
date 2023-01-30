@@ -12,7 +12,7 @@ let initialState = {
 
 export type InitialStateType = typeof initialState;
 
-const authReducer = (state = initialState, action: ActionTypes): InitialStateType => {
+const authReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case 'auth/SET_USER_DATA':
             return {
@@ -29,7 +29,7 @@ const authReducer = (state = initialState, action: ActionTypes): InitialStateTyp
     }
 }
 
-type ActionTypes = InferActionsTypes<typeof actions>;
+type ActionsTypes = InferActionsTypes<typeof actions>;
 
 export const actions = {
     setAuthUserData: (userID: number | null, email: string | null, login: string | null, isAuth: boolean) => ({
@@ -39,7 +39,7 @@ export const actions = {
     getCaptchaUrlSuccess: (url: string) => ({type: 'auth/GET_CAPTCHA_URL_SUCCESS', url} as const)
 }
 
-type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionTypes>
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
 export const getAuthUserData = (): ThunkType => async (dispatch) => {
     let data = await authAPI.getMe();
