@@ -3,13 +3,6 @@ import {PhotosType, PostType, ProfileType} from "../types/types";
 import {ThunkAction} from "redux-thunk";
 import {AppStateType, InferActionsTypes} from "./store";
 
-const ADD_POST = 'profile/ADD_POST';
-const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
-const SET_STATUS = 'profile/SET_STATUS';
-const DELETE_POST = 'profile/DELETE_POST';
-const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS';
-const SAVE_PROFILE_INFO_SUCCESS = 'profile/SAVE_PROFILE_INFO_SUCCESS';
-
 let initialState = {
     posts: [
         {id: 1, message: 'Hi, how are you?', likesCount: 15},
@@ -72,7 +65,7 @@ export const actions = {
     deletePost: (postID: number) => ({type: 'profile/DELETE_POST', postID} as const),
     savePhotoSuccess: (photos: PhotosType) => ({type: 'profile/SAVE_PHOTO_SUCCESS', photos} as const),
     saveProfileInfoSuccess: (profileInfo: ProfileType) => ({type: 'profile/SAVE_PROFILE_INFO_SUCCESS', profileInfo} as const)
-};
+}
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>;
 
@@ -89,7 +82,7 @@ export const updateStatus = (status: string): ThunkType => async (dispatch) => {
     if (data.resultCode === 0)
         dispatch(actions.setStatus(status));
 }
-export const savePhoto = (photo: any): ThunkType => async (dispatch) => {
+export const savePhoto = (photo: File): ThunkType => async (dispatch) => {
     let data = await profileAPI.savePhoto(photo);
     if (data.resultCode === 0)
         dispatch(actions.savePhotoSuccess(data.data));

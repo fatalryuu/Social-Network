@@ -16,10 +16,9 @@ import withRouter from "./components/Common/withRouter/withRouter";
 import Page from "./components/Common/Page/Page";
 import {AppStateType} from "./redux/store";
 
-//@ts-ignore
+
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
-//@ts-ignore
-const ProfileContainer = lazy(() => import("./components/Profile/ProfileContainer"));
+const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'));
 
 type PropsType = MapStatePropsType & MapDispatchPropsType;
 
@@ -42,7 +41,6 @@ class App extends React.Component<PropsType> {
         return (
             <BrowserRouter>
                 <div className='app-wrapper'>
-                    {/*//@ts-ignore*/}
                     <HeaderContainer/>
                     <Sidebar/>
                     <div className='app-wrapper-content'>
@@ -53,7 +51,6 @@ class App extends React.Component<PropsType> {
                                 <Route path='/profile/:userID' element={<Page title="Profile"><ProfileContainer/></Page>}/>
                                 <Route path='/news' element={<Page title="News"><News/></Page>}/>
                                 <Route path='/dialogs/*' element={<Page title="Dialogs"><DialogsContainer/></Page>}/>
-                                {/*//@ts-ignore*/}
                                 <Route path='/users' element={<Page title="Users"><UsersContainer/></Page>}/>
                                 <Route path='/music' element={<Page title="Music"><Music/></Page>}/>
                                 <Route path='/settings' element={<Page title="Settings"><Settings/></Page>}/>

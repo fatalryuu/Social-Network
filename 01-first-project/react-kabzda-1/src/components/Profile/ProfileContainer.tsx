@@ -11,16 +11,13 @@ import {useParams} from "react-router-dom";
 
 type PropsType = MapStatePropsType & MapDispatchToProps;
 
-type MapStatePropsType = {
-    profile: ProfileType | null
-    status: string
-}
+type MapStatePropsType = ReturnType<typeof mapStateToProps>;
 
 type MapDispatchToProps = {
     getProfile: (userID: number) => void
     getStatus: (userID: number) => void
     updateStatus: (status: string | null) => void
-    savePhoto: (photo: any) => void
+    savePhoto: (photo: File) => void
     saveProfileInfo: (info: ProfileType) => void
 }
 
@@ -88,14 +85,14 @@ class ProfileContainer extends React.Component<PropsType> {
 //         />)
 // }
 
-const mapStateToProps = (state: AppStateType): MapStatePropsType => {
+const mapStateToProps = (state: AppStateType) => {
     return {
         profile: state.profilePage.profile,
         status: state.profilePage.status
     }
 }
 
-export default compose(
+export default compose<React.ComponentType>(
     connect(mapStateToProps, {getProfile, getStatus, updateStatus, savePhoto, saveProfileInfo}),
     withRouter,
     withAuthRedirect)(ProfileContainer);
