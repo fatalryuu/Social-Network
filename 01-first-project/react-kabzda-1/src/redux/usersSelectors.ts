@@ -29,4 +29,8 @@ export const getFollowingInProcess = (state: AppStateType) => {
     return state.usersPage.followingInProcess;
 }
 
+export const getUsersFilter = (state: AppStateType) => {
+    return state.usersPage.filter;
+}
+
 
