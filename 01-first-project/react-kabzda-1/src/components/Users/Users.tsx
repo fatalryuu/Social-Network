@@ -14,9 +14,16 @@ import {
     getUsersFilter
 } from "../../redux/usersSelectors";
 import {AppDispatch} from "../../redux/store";
+import {useNavigate, useSearchParams} from "react-router-dom";
 
 type PropsType = {
 
+}
+
+type QueryParamsType = {
+    term?: string
+    friend?: string
+    page?: string
 }
 
 const Users: React.FC<PropsType> = (props) => {
@@ -28,10 +35,46 @@ const Users: React.FC<PropsType> = (props) => {
     const filter = useSelector(getUsersFilter);
 
     const dispatch: AppDispatch = useDispatch();
+    const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
-        dispatch(requestUsers(currentPage, pageSize, "", null));
+        const result: any = {}
+        // @ts-ignore
+        for (const [key, value] of searchParams.entries()) {
+            let newValue: any = +value;
+            if (value === "true") { //for friend
+                newValue = true
+            } else if (value === "false") {
+                newValue = false
+            }
+            if (isNaN(newValue)) { //for term
+                newValue = value
+            }
+            result[key] = newValue //for page & other
+        }
+
+        let actualPage = result.page || currentPage;
+        let term = result.term || filter.term;
+
+        let friend = result.friend || filter.friend;
+        if (result.friend === false) {
+            friend = result.friend;
+        }
+
+        dispatch(requestUsers(actualPage, pageSize, term, friend));
     }, []);
+
+    useEffect(() => {
+        let urlQuery = "";
+        if (!!filter.term)
+            urlQuery += `&term=${filter.term}`;
+        if (filter.friend !== null)
+            urlQuery += `&friend=${filter.friend}`
+        if (currentPage !== 1)
+            urlQuery += `&page=${currentPage}`
+
+        setSearchParams(urlQuery);
+    }, [filter, currentPage]);
 
     const onPageChanged = (page: number) => {
         dispatch(requestUsers(page, pageSize, filter.term, filter.friend));
