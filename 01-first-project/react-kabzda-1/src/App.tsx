@@ -5,7 +5,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
-import UsersContainer from "./components/Users/UsersContainer";
+import UsersPage from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {compose} from "@reduxjs/toolkit";
@@ -51,7 +51,7 @@ class App extends React.Component<PropsType> {
                                 <Route path='/profile/:userID' element={<Page title="Profile"><ProfileContainer/></Page>}/>
                                 <Route path='/news' element={<Page title="News"><News/></Page>}/>
                                 <Route path='/dialogs/*' element={<Page title="Dialogs"><DialogsContainer/></Page>}/>
-                                <Route path='/users' element={<Page title="Users"><UsersContainer/></Page>}/>
+                                <Route path='/users' element={<Page title="Users"><UsersPage/></Page>}/>
                                 <Route path='/music' element={<Page title="Music"><Music/></Page>}/>
                                 <Route path='/settings' element={<Page title="Settings"><Settings/></Page>}/>
                                 <Route path='/login' element={<Page title="Login"><Login/></Page>}/>
