@@ -9,6 +9,7 @@ let initialState = {
         {id: 2, message: 'It\'s my first post', likesCount: 12}
     ] as Array<PostType>,
     profile: null as null | ProfileType,
+    isFetching: true,
     status: ""
 }
 
@@ -51,6 +52,11 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
                     lookingForAJobDescription: action.profileInfo.lookingForAJobDescription
                 } as ProfileType
             }
+        case 'profile/TOGGLE_IS_FETCHING':
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
         default:
             return state;
     }
@@ -64,32 +70,43 @@ export const actions = {
     setStatus: (status: string) => ({type: 'profile/SET_STATUS', status} as const),
     deletePost: (postID: number) => ({type: 'profile/DELETE_POST', postID} as const),
     savePhotoSuccess: (photos: PhotosType) => ({type: 'profile/SAVE_PHOTO_SUCCESS', photos} as const),
-    saveProfileInfoSuccess: (profileInfo: ProfileType) => ({type: 'profile/SAVE_PROFILE_INFO_SUCCESS', profileInfo} as const)
+    saveProfileInfoSuccess: (profileInfo: ProfileType) => ({type: 'profile/SAVE_PROFILE_INFO_SUCCESS', profileInfo} as const),
+    toggleIsFetching: (isFetching: boolean) => ({type: 'profile/TOGGLE_IS_FETCHING', isFetching} as const),
 }
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>;
 
 export const getProfile = (userID: number): ThunkType => async (dispatch) => {
+    dispatch(actions.toggleIsFetching(true));
     let data = await profileAPI.getProfile(userID);
+    dispatch(actions.toggleIsFetching(false));
     dispatch(actions.setUserProfile(data));
 }
 export const getStatus = (userID: number): ThunkType => async (dispatch) => {
+    dispatch(actions.toggleIsFetching(true));
     let data = await profileAPI.getStatus(userID);
+    dispatch(actions.toggleIsFetching(false));
     dispatch(actions.setStatus(data));
 }
 export const updateStatus = (status: string): ThunkType => async (dispatch) => {
+    dispatch(actions.toggleIsFetching(true));
     let data = await profileAPI.updateStatus(status);
+    dispatch(actions.toggleIsFetching(false));
     if (data.resultCode === 0)
         dispatch(actions.setStatus(status));
 }
 export const savePhoto = (photo: File): ThunkType => async (dispatch) => {
+    dispatch(actions.toggleIsFetching(true));
     let data = await profileAPI.savePhoto(photo);
+    dispatch(actions.toggleIsFetching(false));
     if (data.resultCode === 0)
         dispatch(actions.savePhotoSuccess(data.data));
 }
 export const saveProfileInfo = (info: ProfileType): ThunkType => async (dispatch, getState) => {
     const userID = getState().auth.userID;
+    dispatch(actions.toggleIsFetching(true));
     const data = await profileAPI.saveProfileData(info);
+    dispatch(actions.toggleIsFetching(false));
     if (data.resultCode === 0 && userID)
         dispatch(getProfile(userID));
 }

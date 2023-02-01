@@ -1,6 +1,6 @@
 import React from 'react';
 import s from "./Users.module.css";
-import avatar from "../../img/user_avatar.jpg";
+import avatar from "../../img/user_avatar.png";
 import {NavLink} from "react-router-dom";
 import {PhotosType, UserType} from "../../types/types";
 

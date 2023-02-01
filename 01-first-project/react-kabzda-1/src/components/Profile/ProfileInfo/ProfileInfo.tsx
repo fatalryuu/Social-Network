@@ -6,6 +6,8 @@ import ProfileStatus from "./ProfileStatus/ProfileStatus";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
 import {ProfileType} from "../../../types/types";
+import {useSelector} from "react-redux";
+import {getProfileIsFetching} from "../../../redux/usersSelectors";
 
 type PropsType = {
     profile: ProfileType | null
@@ -18,7 +20,7 @@ type PropsType = {
 
 const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus, isOwner, savePhoto, saveProfileInfo}) => {
     let [editMode, setEditMode] = useState(false);
-
+    const isFetching = useSelector(getProfileIsFetching);
     if (!profile) {
         return <Preloader/>
     }
@@ -31,7 +33,7 @@ const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus, isOwne
     return (
         <div className={s.profile_info}>
             <div className={s.avatar}>
-                <img src={profile.photos.large != null ? profile.photos.large : avatar} alt=""/>
+                {isFetching ? <Preloader /> : <img src={profile.photos.large != null ? profile.photos.large : avatar} alt=""/>}
                 <div>
                     {isOwner ? <input type="file" onChange={onAvatarSelected}/> : null}
                 </div>

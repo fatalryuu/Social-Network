@@ -111,7 +111,7 @@ export const unfollow = (userID: number): ThunkType => async (dispatch) => {
     _followUnfollowFlow(dispatch, userID, usersAPI.unfollow, actions.unfollowSuccess);
 }
 
-type InitialStateType = typeof initialState;
+export type InitialStateType = typeof initialState;
 export type FilterType = typeof initialState.filter;
 type ActionsTypes = InferActionsTypes<typeof actions>;
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
