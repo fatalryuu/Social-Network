@@ -1,0 +1,15 @@
+.text {
+    color: white;
+}
+
+.newPost button {
+    color: black;
+}
+
+.postsBlock {
+    padding: 10px;
+}
+
+.posts {
+    margin-top: 10px;
+}

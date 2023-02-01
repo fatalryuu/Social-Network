@@ -1,0 +1,1 @@
+{"version":3,"file":"sidebarReducer.js","sourceRoot":"","sources":["sidebarReducer.ts"],"names":[],"mappings":";AAAA,gDAAgD;AAChD,kDAAkD;AAClD,gDAAgD;;AAEhD,IAAI,YAAY,GAAG;AACf,aAAa;AACb,qDAAqD;AACrD,uDAAuD;AACvD,oDAAoD;AACpD,IAAI;CACP,CAAA;AAID,IAAM,WAAW,GAAG,UAAC,KAAoB,EAAE,MAAW;IAAjC,sBAAA,EAAA,oBAAoB;IACrC,OAAO,KAAK,CAAA;AAChB,CAAC,CAAA;AAED,kBAAe,WAAW,CAAA"}
