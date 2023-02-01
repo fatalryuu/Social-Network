@@ -1,4 +1,49 @@
-.items {
+.wrapper {
+    width: 980px;
+}
+
+.search {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #5a5a5a;
+    background-color: #232323;
+    float: right;
+    border-radius: 10px;
+}
+
+.search_component {
+
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    border-bottom: 1px solid #5a5a5a;
+    padding-left: 5px;
+}
+
+.form {
+    padding: 10px 0 0 20px;
+}
+
+.label {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px;
+}
+
+.term {
+    padding-bottom: 10px;
+}
+
+.filter {
+
+}
+
+.users {
     color: white;
     background-color: #232323;
     width: 642px;

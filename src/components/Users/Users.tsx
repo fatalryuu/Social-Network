@@ -14,16 +14,9 @@ import {
     getUsersFilter
 } from "../../redux/usersSelectors";
 import {AppDispatch} from "../../redux/store";
-import {useNavigate, useSearchParams} from "react-router-dom";
 
 type PropsType = {
 
-}
-
-type QueryParamsType = {
-    term?: string
-    friend?: string
-    page?: string
 }
 
 const Users: React.FC<PropsType> = (props) => {
@@ -35,46 +28,10 @@ const Users: React.FC<PropsType> = (props) => {
     const filter = useSelector(getUsersFilter);
 
     const dispatch: AppDispatch = useDispatch();
-    const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
-        const result: any = {}
-        // @ts-ignore
-        for (const [key, value] of searchParams.entries()) {
-            let newValue: any = +value;
-            if (value === "true") { //for friend
-                newValue = true
-            } else if (value === "false") {
-                newValue = false
-            }
-            if (isNaN(newValue)) { //for term
-                newValue = value
-            }
-            result[key] = newValue //for page & other
-        }
-
-        let actualPage = result.page || currentPage;
-        let term = result.term || filter.term;
-
-        let friend = result.friend || filter.friend;
-        if (result.friend === false) {
-            friend = result.friend;
-        }
-
-        dispatch(requestUsers(actualPage, pageSize, term, friend));
+        dispatch(requestUsers(1, pageSize, "", null));
     }, []);
-
-    useEffect(() => {
-        let urlQuery = "";
-        if (!!filter.term)
-            urlQuery += `&term=${filter.term}`;
-        if (filter.friend !== null)
-            urlQuery += `&friend=${filter.friend}`
-        if (currentPage !== 1)
-            urlQuery += `&page=${currentPage}`
-
-        setSearchParams(urlQuery);
-    }, [filter, currentPage]);
 
     const onPageChanged = (page: number) => {
         dispatch(requestUsers(page, pageSize, filter.term, filter.friend));
@@ -92,19 +49,22 @@ const Users: React.FC<PropsType> = (props) => {
     }
 
     return (
-        <div className={s.items}>
-            <UsersSearchForm onFilterChanged={onFilterChanged}/>
-            <Paginator totalItemsCount={totalUsersCount} pageSize={pageSize} currentPage={currentPage}
-                       onPageChanged={onPageChanged}/>
-            {users.map(u => <User key={u.id} id={u.id} name={u.name} photos={u.photos}
-                                        followingInProcess={followingInProcess} follow={follow}
-                                        unfollow={unfollow} status={u.status}
-                                        followed={u.followed}/>)
-            }
-            <div className={s.show_more}>
-                <a href="#" className={s.link}>Show More</a>
+        <div className={s.wrapper}>
+            <div className={s.search}>
+                <UsersSearchForm onFilterChanged={onFilterChanged}/>
             </div>
-
+            <div className={s.users}>
+                <Paginator totalItemsCount={totalUsersCount} pageSize={pageSize} currentPage={currentPage}
+                           onPageChanged={onPageChanged}/>
+                {users.map(u => <User key={u.id} id={u.id} name={u.name} photos={u.photos}
+                                      followingInProcess={followingInProcess} follow={follow}
+                                      unfollow={unfollow} status={u.status}
+                                      followed={u.followed}/>)
+                }
+                <div className={s.show_more}>
+                    <a href="#" className={s.link}>Show More</a>
+                </div>
+            </div>
         </div>
     );
 };
