@@ -12,8 +12,7 @@ type PropsType = {
 }
 
 export const UsersSearchForm: React.FC<PropsType> = React.memo((props) => {
-    const filter = useSelector(getUsersFilter);
-    const [friend, setFriend] = useState("");
+    const [friend, setFriend] = useState("null");
     const {Search} = Input;
 
     const onChange = (e: RadioChangeEvent) => {
