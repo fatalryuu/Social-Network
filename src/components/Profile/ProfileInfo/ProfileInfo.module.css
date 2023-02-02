@@ -3,8 +3,57 @@
     margin-top: 12px;
 }
 
+.avatar {
+    width: 250px;
+    height: 350px;
+    border-radius: 5px;
+    border: 1px solid #5a5a5a;
+}
+
 .avatar img {
     width: 250px;
+}
+
+.buttons {
+    padding: 10px 0 0 20px;
+}
+
+.edit {
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+}
+
+.edit:hover {
+    cursor: pointer;
+}
+
+.edit {
+    background-color: white;
+    color: black;
+}
+
+.edit:hover {
+    background-color: #c6c6c6;
+    color: #242424;
+}
+
+.fileUpload {
+    padding-left: 15px;
+}
+
+.upload {
+    width: 0.1px;
+    height: 0.1px;
+}
+
+.icon {
+    cursor: pointer;
+    border-radius: 20px;
+    color: black;
+    padding: 9px 8px;
+    background-color: white;
 }
 
 .info {

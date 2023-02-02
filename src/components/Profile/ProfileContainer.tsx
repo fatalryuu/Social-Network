@@ -7,7 +7,6 @@ import {compose} from "@reduxjs/toolkit";
 import withRouter from "../Common/withRouter/withRouter";
 import {AppStateType} from "../../redux/store";
 import {ProfileType} from "../../types/types";
-import {useParams} from "react-router-dom";
 
 type PropsType = MapStatePropsType & MapDispatchToProps;
 

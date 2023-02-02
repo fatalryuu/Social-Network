@@ -6,12 +6,10 @@ import {ProfileType} from "../../../../types/types";
 type PropsType = {
     profile: ProfileType
     isOwner: boolean
-    goToEditMode: () => void
 }
 
-const ProfileData: React.FC<PropsType> = ({profile, isOwner, goToEditMode}) => {
+const ProfileData: React.FC<PropsType> = ({profile, isOwner}) => {
     return <>
-        {isOwner ? <button onClick={goToEditMode}>edit</button> : null}
         {profile.aboutMe ? <div>
             <b>About me: </b>
             <span className={s.about}>{profile.aboutMe}</span>

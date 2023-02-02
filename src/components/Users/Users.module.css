@@ -90,6 +90,11 @@
     font-weight: 600;
 }
 
+.name a {
+    text-decoration: none;
+    color: white;
+}
+
 .btn_wrapper {
     height: 3px;
 }

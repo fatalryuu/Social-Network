@@ -15,8 +15,8 @@ const ProfileDataForm: React.FC<PropsType> = ({profile, setEditMode, saveProfile
     const onSubmit = (d: any) => {
         if (profile)
             d["fullName"] = profile.fullName;
-        saveProfileInfo(d)
-            .then(() => setEditMode(false));
+            saveProfileInfo(d)
+                .then(() => setEditMode(false));
     }
 
     return (

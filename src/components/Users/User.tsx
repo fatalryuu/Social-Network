@@ -21,7 +21,7 @@ const User: React.FC<PropsType> = ({id, name, photos, followingInProcess, follow
             <NavLink to={'/profile/' + id}><img src={photos.small != null ? photos.small : avatar} alt=""
                                                 className={s.avatar}/></NavLink>
             <div>
-                <div className={s.name}>{name}</div>
+                <div className={s.name}><NavLink to={'/profile/' + id}>{name}</NavLink></div>
                 <div className={s.btn_wrapper}>
                     {followed ?
                         <button disabled={followingInProcess.some(thisID => thisID === id)} onClick={() => unfollow(id)}

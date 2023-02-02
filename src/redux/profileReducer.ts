@@ -79,8 +79,8 @@ type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 export const getProfile = (userID: number): ThunkType => async (dispatch) => {
     dispatch(actions.toggleIsFetching(true));
     let data = await profileAPI.getProfile(userID);
-    dispatch(actions.toggleIsFetching(false));
     dispatch(actions.setUserProfile(data));
+    dispatch(actions.toggleIsFetching(false));
 }
 export const getStatus = (userID: number): ThunkType => async (dispatch) => {
     dispatch(actions.toggleIsFetching(true));
@@ -100,13 +100,11 @@ export const savePhoto = (photo: File): ThunkType => async (dispatch) => {
     let data = await profileAPI.savePhoto(photo);
     dispatch(actions.toggleIsFetching(false));
     if (data.resultCode === 0)
-        dispatch(actions.savePhotoSuccess(data.data));
+        dispatch(actions.savePhotoSuccess(data.data.photos));
 }
 export const saveProfileInfo = (info: ProfileType): ThunkType => async (dispatch, getState) => {
     const userID = getState().auth.userID;
-    dispatch(actions.toggleIsFetching(true));
     const data = await profileAPI.saveProfileData(info);
-    dispatch(actions.toggleIsFetching(false));
     if (data.resultCode === 0 && userID)
         dispatch(getProfile(userID));
 }

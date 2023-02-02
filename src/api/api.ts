@@ -28,7 +28,7 @@ type DefaultResponseType = {
 }
 
 type SavePhotoType = {
-    data: PhotosType
+    data: {photos: PhotosType}
     resultCode: number
     messages: Array<string>
 }
@@ -67,7 +67,7 @@ export const profileAPI = {
             .put<DefaultResponseType>(`profile/status/`, {status})
             .then(response => response.data);
     },
-    savePhoto(photo: any) {
+    savePhoto(photo: File) {
         let formData = new FormData();
         formData.append("image", photo);
         return instance
