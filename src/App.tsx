@@ -16,6 +16,7 @@ import {AppDispatch, AppStateType} from "./redux/store";
 
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'));
+const ChatPage = lazy(() => import('./components/ChatPage/ChatPage'));
 
 const App: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
@@ -42,6 +43,7 @@ const App: React.FC = () => {
                             <Route path='/profile/:userID' element={<Page title="Profile"><ProfileContainer/></Page>}/>
                             <Route path='/news' element={<Page title="News"><News/></Page>}/>
                             <Route path='/dialogs/*' element={<Page title="Dialogs"><DialogsContainer/></Page>}/>
+                            <Route path='/chat' element={<Page title="Chat"><ChatPage/></Page>}/>
                             <Route path='/users' element={<Page title="Users"><UsersPage/></Page>}/>
                             <Route path='/music' element={<Page title="Music"><Music/></Page>}/>
                             <Route path='/settings' element={<Page title="Settings"><Settings/></Page>}/>

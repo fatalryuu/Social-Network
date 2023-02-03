@@ -7,6 +7,7 @@ import MessageIcon from '@mui/icons-material/Message';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import QueueMusicIcon from '@mui/icons-material/QueueMusic';
 import SettingsIcon from '@mui/icons-material/Settings';
+import ThreePIcon from '@mui/icons-material/ThreeP';
 
 type PropsType = {}
 
@@ -34,6 +35,14 @@ const Sidebar: React.FC<PropsType> = () => {
                     <span className={s.wrap}>
                         <MessageIcon fontSize="small"/>
                         <span className={s.string}>Messages</span>
+                    </span>
+                </NavLink>
+            </div>
+            <div className={s.item}>
+                <NavLink to="/chat" className={({isActive}) => isActive ? s.active : s.item}>
+                    <span className={s.wrap}>
+                        <ThreePIcon fontSize="small"/>
+                        <span className={s.string}>Chat</span>
                     </span>
                 </NavLink>
             </div>
