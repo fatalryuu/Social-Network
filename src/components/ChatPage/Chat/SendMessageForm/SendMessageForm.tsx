@@ -6,9 +6,13 @@ const SendMessageForm: React.FC<{wsChannel: WebSocket | null}> = ({wsChannel}) =
     const [readyStatus, setReadyStatus] = useState<'pending' | 'ready'>('pending');
 
     useEffect(() => {
-        wsChannel?.addEventListener('open', () => {
+        const openHandler = () => {
             setReadyStatus('ready')
-        })
+        };
+        wsChannel?.addEventListener('open', openHandler)
+        return () => {
+            wsChannel?.removeEventListener('open', openHandler)
+        }
     }, [wsChannel])
 
     const sendMessage = () => {
@@ -20,7 +24,7 @@ const SendMessageForm: React.FC<{wsChannel: WebSocket | null}> = ({wsChannel}) =
     return (
         <div>
             <textarea onChange={(e) => setMessage(e.currentTarget.value)} value={message}></textarea>
-            <button disabled={readyStatus !== 'ready'} onClick={sendMessage}><SendIcon /></button>
+            <button disabled={wsChannel === null || readyStatus !== 'ready'} onClick={sendMessage}><SendIcon /></button>
         </div>
     );
 };
