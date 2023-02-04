@@ -1,20 +1,26 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import SendIcon from '@mui/icons-material/Send';
 
-const ws = new WebSocket('wss://social-network.samuraijs.com/handlers/ChatHandler.ashx');
-
-const SendMessageForm: React.FC = () => {
+const SendMessageForm: React.FC<{wsChannel: WebSocket | null}> = ({wsChannel}) => {
     const [message, setMessage] = useState("");
+    const [readyStatus, setReadyStatus] = useState<'pending' | 'ready'>('pending');
+
+    useEffect(() => {
+        wsChannel?.addEventListener('open', () => {
+            setReadyStatus('ready')
+        })
+    }, [wsChannel])
+
     const sendMessage = () => {
         if (!message)
             return;
-        ws.send(message);
+        wsChannel?.send(message);
         setMessage("");
     }
     return (
         <div>
             <textarea onChange={(e) => setMessage(e.currentTarget.value)} value={message}></textarea>
-            <button onClick={sendMessage}><SendIcon /></button>
+            <button disabled={readyStatus !== 'ready'} onClick={sendMessage}><SendIcon /></button>
         </div>
     );
 };
