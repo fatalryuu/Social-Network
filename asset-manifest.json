@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/Social-Network/static/css/main.bdbecceb.css",
-    "main.js": "/Social-Network/static/js/main.fd199016.js",
+    "main.js": "/Social-Network/static/js/main.0befc33d.js",
     "static/css/3.179f0223.chunk.css": "/Social-Network/static/css/3.179f0223.chunk.css",
     "static/js/3.96b8cc06.chunk.js": "/Social-Network/static/js/3.96b8cc06.chunk.js",
     "static/css/549.af9c971b.chunk.css": "/Social-Network/static/css/549.af9c971b.chunk.css",
     "static/js/549.689174a9.chunk.js": "/Social-Network/static/js/549.689174a9.chunk.js",
     "static/css/747.b4216951.chunk.css": "/Social-Network/static/css/747.b4216951.chunk.css",
-    "static/js/747.9b99a0c0.chunk.js": "/Social-Network/static/js/747.9b99a0c0.chunk.js",
+    "static/js/747.b50a2af1.chunk.js": "/Social-Network/static/js/747.b50a2af1.chunk.js",
     "static/media/post_avatar.png": "/Social-Network/static/media/post_avatar.884b5b68052ea553bbb7.png",
     "static/media/preloader.svg": "/Social-Network/static/media/preloader.c2cb9ed7cc207a2a80fbb9fc1e6c3b5d.svg",
     "index.html": "/Social-Network/index.html",
     "main.bdbecceb.css.map": "/Social-Network/static/css/main.bdbecceb.css.map",
-    "main.fd199016.js.map": "/Social-Network/static/js/main.fd199016.js.map",
+    "main.0befc33d.js.map": "/Social-Network/static/js/main.0befc33d.js.map",
     "3.179f0223.chunk.css.map": "/Social-Network/static/css/3.179f0223.chunk.css.map",
     "3.96b8cc06.chunk.js.map": "/Social-Network/static/js/3.96b8cc06.chunk.js.map",
     "549.af9c971b.chunk.css.map": "/Social-Network/static/css/549.af9c971b.chunk.css.map",
     "549.689174a9.chunk.js.map": "/Social-Network/static/js/549.689174a9.chunk.js.map",
     "747.b4216951.chunk.css.map": "/Social-Network/static/css/747.b4216951.chunk.css.map",
-    "747.9b99a0c0.chunk.js.map": "/Social-Network/static/js/747.9b99a0c0.chunk.js.map"
+    "747.b50a2af1.chunk.js.map": "/Social-Network/static/js/747.b50a2af1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bdbecceb.css",
-    "static/js/main.fd199016.js"
+    "static/js/main.0befc33d.js"
   ]
 }
