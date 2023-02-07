@@ -1,12 +1,6 @@
 import React from 'react';
 import s from '../../../ChatPage.module.css'
-
-export type ChatMessageType = {
-    message: string,
-    photo: string,
-    userId: number,
-    userName: string
-}
+import {ChatMessageType} from "../../../../../api/chat-api";
 
 const Message: React.FC<{message: ChatMessageType}> = ({message}) => {
     return (

@@ -21,6 +21,7 @@ type PropsType = {
 
 const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus, isOwner, savePhoto, saveProfileInfo}) => {
     let [editMode, setEditMode] = useState(false);
+    let [isEnabled, setIsEnabled] = useState(true);
     const isFetching = useSelector(getProfileIsFetching);
     if (!profile) {
         return <Preloader/>
@@ -35,24 +36,31 @@ const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus, isOwne
         <div className={s.profile_info}>
             <div className={s.avatar}>
                 {isFetching ? <Preloader/> :
-                    <img src={profile.photos.large !== undefined ? profile.photos.large : avatar} alt=""/>}
-                <div className={s.buttons}>
-                    {isOwner ?
-                        <button onClick={() => setEditMode(true)} className={s.edit}>Edit profile</button> : null}
-                    {isOwner ?
-                        <span className={s.fileUpload}>
+                    <div className={s.image}>
+                        <img src={profile.photos.large !== undefined ? profile.photos.large : avatar} alt="" />
+                        {isOwner ?
+                            <span className={s.fileUpload}>
                             <input type="file" onChange={onAvatarSelected} className={s.upload} id="file-input"/>
                             <label className={s.icon} htmlFor="file-input">
                                 <UploadIcon/>
                             </label>
                         </span> : null}
+                    </div>}
+                <div className={s.buttons}>
+                    {isOwner ?
+                        <button disabled={!isEnabled} onClick={() => {
+                            setEditMode(true);
+                            setIsEnabled(false);
+                        }} className={isEnabled ? s.edit : s.edit_disabled}>Edit profile</button> : null}
                 </div>
             </div>
             <div className={s.info}>
-                <div className={s.name}>{profile.fullName}</div>
-                <ProfileStatus status={status} updateStatus={updateStatus} isOwner={isOwner}/>
+                <div className={s.upper}>
+                    <div className={s.name}>{profile.fullName}</div>
+                    <span className={s.status}><ProfileStatus status={status} updateStatus={updateStatus} isOwner={isOwner}/></span>
+                </div>
                 {editMode ?
-                    <ProfileDataForm profile={profile} setEditMode={setEditMode} saveProfileInfo={saveProfileInfo}/> :
+                    <ProfileDataForm profile={profile} setEditMode={setEditMode} setIsEnabled={setIsEnabled} saveProfileInfo={saveProfileInfo}/> :
                     <ProfileData profile={profile} isOwner={isOwner}/>}
             </div>
         </div>

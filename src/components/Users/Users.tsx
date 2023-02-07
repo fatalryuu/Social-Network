@@ -61,9 +61,6 @@ const Users: React.FC<PropsType> = (props) => {
                                       unfollow={unfollow} status={u.status}
                                       followed={u.followed}/>)
                 }
-                <div className={s.show_more}>
-                    <a href="#" className={s.link}>Show More</a>
-                </div>
             </div>
         </div>
     );

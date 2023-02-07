@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import Message, {ChatMessageType} from "./Message/Message";
+import Message from "./Message/Message";
+import {ChatMessageType} from "../../../../api/chat-api";
 
 const Messages: React.FC<{wsChannel: WebSocket | null}> = ({wsChannel}) => {
     const [messages, setMessages] = useState<ChatMessageType[]>([]);

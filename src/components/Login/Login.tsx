@@ -26,8 +26,12 @@ const Login: React.FC = () => {
             <h1>Login</h1>
             <div className={s.acc_info}>
                 <p>Для входа используйте тестовый аккаунт:</p>
-                <p>Email: testaccforsocialnetwork@gmail.com</p>
-                <p>Password: 1234554321</p>
+                <p id="email">Email: testaccforsocialnetwork@gmail.com
+                    <button onClick={() => navigator.clipboard.writeText('testaccforsocialnetwork@gmail.com')}>Copy</button>
+                </p>
+                <p id="password">Password: 1234554321
+                    <button onClick={() => navigator.clipboard.writeText('1234554321')}>Copy</button>
+                </p>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>

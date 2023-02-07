@@ -1,48 +1,66 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
 import s from "../ProfileInfo.module.css";
-import ContactForm from "../ContactForm/ContactForm";
+import ContactLabels from "../ContactForm/ContactLabels";
 import {ProfileType} from "../../../../types/types";
+import ContactInputs from "../ContactForm/ContactInputs";
+import DoneIcon from '@mui/icons-material/Done';
 
 type PropsType = {
     profile: ProfileType
     setEditMode: (editMode: boolean) => void
+    setIsEnabled: (isEnabled: boolean) => void
     saveProfileInfo: (info: ProfileType) => any
 }
 
-const ProfileDataForm: React.FC<PropsType> = ({profile, setEditMode, saveProfileInfo}) => {
+const ProfileDataForm: React.FC<PropsType> = ({profile, setEditMode, setIsEnabled, saveProfileInfo}) => {
     const {register, handleSubmit} = useForm();
     const onSubmit = (d: any) => {
         if (profile)
             d["fullName"] = profile.fullName;
-            saveProfileInfo(d)
-                .then(() => setEditMode(false));
+        saveProfileInfo(d)
+            .then(() => setEditMode(false));
     }
 
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className={s.about}>
-                    <b>About me: </b>
-                    <input type="text" {...register("aboutMe", {required: false})}
-                           defaultValue={profile.aboutMe}
-                           onBlur={() => {
-                           }} placeholder={'About Me'}/>
+            <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
+                <div className={`${s.columns} ${s.labels}`}>
+                    <div>
+                        <b>About me: </b>
+                    </div>
+                    <div>
+                        <b>Looking for a job: </b>
+                    </div>
+                    <div>
+                        <b>Soft skills: </b>
+                    </div>
+                    {(Object.keys(profile.contacts) as Array<keyof typeof profile.contacts>).map(key => <ContactLabels
+                        register={register} key={key} contactTitle={key}
+                        contactValue={profile.contacts[key]}/>)}
                 </div>
-                <div>
-                    <b>Looking for a job: </b>
-                    <input type="checkbox" defaultChecked={profile.lookingForAJob} {...register("lookingForAJob", {required: false})}/>
+                <div className={`${s.columns} ${s.inputs}`}>
+                    <div>
+                        <input type="text" {...register("aboutMe", {required: false})}
+                               defaultValue={profile.aboutMe}
+                               onBlur={() => {
+                               }} placeholder={'About Me'} className={s.about}/>
+                    </div>
+                    <div>
+                        <input type="checkbox"
+                               defaultChecked={profile.lookingForAJob} {...register("lookingForAJob", {required: false})}/>
+                    </div>
+                    <div>
+                        <input type="text" {...register("lookingForAJobDescription", {required: false})}
+                               defaultValue={profile.lookingForAJobDescription}
+                               onBlur={() => {
+                               }} placeholder={'Soft skills'} className={s.soft_skills}/>
+                    </div>
+                    {(Object.keys(profile.contacts) as Array<keyof typeof profile.contacts>).map(key => <ContactInputs
+                        register={register} key={key} contactTitle={key}
+                        contactValue={profile.contacts[key]}/>)}
                 </div>
-                <div className={s.job}>
-                    <b>Soft skills: </b>
-                    <input type="text" {...register("lookingForAJobDescription", {required: false})}
-                           defaultValue={profile.lookingForAJobDescription}
-                           onBlur={() => {
-                           }} placeholder={'Soft skills'}/>
-                </div>
-                {(Object.keys(profile.contacts) as Array<keyof typeof profile.contacts>).map(key => <ContactForm register={register} key={key} contactTitle={key}
-                                                                   contactValue={profile.contacts[key]}/>)}
-                <button>Done</button>
+                <button onClick={() => setIsEnabled(true)}><DoneIcon style={{width: "15px"}}/></button>
             </form>
         </div>
     )

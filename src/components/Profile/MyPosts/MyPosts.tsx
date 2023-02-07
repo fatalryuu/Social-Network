@@ -19,7 +19,7 @@ const MyPosts: React.FC<PropsType> = ({posts, addPost}) => {
     }
 
     return (
-        <div className={s.postsBlock}>
+        <div className={s.posts_block}>
             <h3 className={s.text}>My posts</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={s.newPost}>

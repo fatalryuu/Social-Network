@@ -1,5 +1,5 @@
 .wrapper {
-    width: 980px;
+    width: 971px;
 }
 
 .search {
@@ -9,6 +9,7 @@
     background-color: #232323;
     float: right;
     border-radius: 10px;
+    margin-right: 1px;
 }
 
 .search_component {
@@ -136,13 +137,3 @@
     margin-left: 15px;
 }
 
-.show_more {
-    height: 50px;
-}
-
-.link {
-    margin-left: 270px;
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
-}

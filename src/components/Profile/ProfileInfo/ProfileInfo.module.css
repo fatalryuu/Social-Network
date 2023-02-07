@@ -5,9 +5,14 @@
 
 .avatar {
     width: 250px;
-    height: 350px;
+    height: 320px;
     border-radius: 5px;
     border: 1px solid #5a5a5a;
+    padding: 10px;
+}
+
+.image:hover .fileUpload {
+    display: block;
 }
 
 .avatar img {
@@ -15,23 +20,31 @@
 }
 
 .buttons {
-    padding: 10px 0 0 20px;
+    padding-top: 17px;
+    text-align: center;
 }
 
 .edit {
+    font-size: 16px;
     border: none;
     border-radius: 5px;
-    width: 150px;
-    height: 30px;
+    width: 180px;
+    height: 35px;
+    background-color: white;
+    color: black;
+}
+
+.edit_disabled {
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    height: 35px;
+    color: #a1a1a1;
 }
 
 .edit:hover {
     cursor: pointer;
-}
-
-.edit {
-    background-color: white;
-    color: black;
 }
 
 .edit:hover {
@@ -40,6 +53,10 @@
 }
 
 .fileUpload {
+    position: absolute;
+    top: 95px;
+    left: 720px;
+    display: none;
     padding-left: 15px;
 }
 
@@ -53,30 +70,87 @@
     border-radius: 20px;
     color: black;
     padding: 9px 8px;
-    background-color: white;
+    opacity: .7;
+    background-color: #ffffff;
+    border: 1px solid black;
 }
 
 .info {
     color: white;
     margin-left: 20px;
-    width: 800px;
+    width: 690px;
+    height: 340px;
     border: 1px solid #5a5a5a;
     border-radius: 5px;
-    padding-left: 5px;
+    padding-left: 15px;
+}
+
+.upper {
+    width: 650px;
+    border-bottom: 1px solid #5a5a5a;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    margin-top: 4px;
 }
 
 .name {
     font-size: 24px;
-    border-bottom: 1px solid #5a5a5a;
-    padding-bottom: 5px;
-    width: 790px;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
-.about {
+.status {
+    color: #adadad;
+    font-style: italic;
+}
+
+.form {
+    white-space: nowrap;
+}
+
+.form .columns:first-child {
 
 }
 
-.job {
+.columns {
+    display: inline-block;
+    vertical-align: top;
+}
 
+.labels div {
+    margin-bottom: 2px;
+}
+
+.labels {
+    width: 140px;
+}
+
+.inputs {
+    width: 200px;
+}
+
+.inputs div {
+    margin-bottom: 1px;
+}
+
+.contact_input, .about, .soft_skills {
+    border-radius: 5px;
+    height: 17px;
+    border: none;
+    background-color: #ffffff;
+    color: #232323;
+}
+
+.form button {
+    margin-top: 225px;
+    margin-left: 280px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.contact a {
+    color: #989898;
 }

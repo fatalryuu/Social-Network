@@ -12,7 +12,7 @@ const ProfileData: React.FC<PropsType> = ({profile, isOwner}) => {
     return <>
         {profile.aboutMe ? <div>
             <b>About me: </b>
-            <span className={s.about}>{profile.aboutMe}</span>
+            <span>{profile.aboutMe}</span>
         </div> : null}
         <div>
             <b>Looking for a job: </b>
