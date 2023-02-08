@@ -2,19 +2,21 @@
     grid-area: h;
     background-color: #232323;
     border-bottom: 1px solid #282828;
-    display: flex;
+}
+
+.wrapper {
+    margin-left: 365px;
+    width: 1131px;
 }
 
 .header img {
-    margin-left: 365px;
     width: 50px;
 }
 
 .login {
-    /*float: right;*/
+    float: right;
     color: white;
-    margin: 12px 0 0 970px;
-    /*margin: 12px 375px 0 0;*/
+    margin: 12px 0 0 0;
 }
 
 .login a {

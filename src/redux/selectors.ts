@@ -41,4 +41,12 @@ export const getAmountOfFollowed = (state: AppStateType) => {
     return state.profilePage.amountOfFollowed;
 }
 
+export const getProfileSelector = (state: AppStateType) => {
+    return state.profilePage.profile;
+}
+
+export const getPosts = (state: AppStateType) => {
+    return state.profilePage.posts;
+}
+
 

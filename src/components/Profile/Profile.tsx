@@ -1,10 +1,10 @@
 import React from 'react';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import {ProfileType} from "../../types/types";
 import {useSelector} from "react-redux";
 import {getAmountOfFollowed} from "../../redux/selectors";
 import s from './Profile.module.css'
+import MyPosts from "./MyPosts/MyPosts";
 
 type PropsType = {
     isOwner: boolean
@@ -24,10 +24,9 @@ const Profile: React.FC<PropsType> = (props) => {
                          saveProfileInfo={props.saveProfileInfo}/>
             {props.isOwner ? <div className={s.lower}>
                 <div className={s.amount_wrapper}>
-                    <div className={s.amount_string}>Amount of followed:</div>
-                    <div className={s.amount}>{amountOfFollowed}</div>
+                    <div className={s.amount_string}><span className={s.followed}>Followed </span> <span className={s.amount}>{amountOfFollowed}</span></div>
                 </div>
-                <MyPostsContainer/>
+                <MyPosts />
             </div> : null}
         </div>
     );

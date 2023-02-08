@@ -9,7 +9,8 @@
     border-radius: 5px;
     border: 1px solid #5a5a5a;
     padding: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    background-color: #232323;
 }
 
 .image:hover .fileUpload {
@@ -46,9 +47,6 @@
 
 .edit:hover {
     cursor: pointer;
-}
-
-.edit:hover {
     background-color: #c6c6c6;
     color: #242424;
 }
@@ -84,6 +82,7 @@
     border: 1px solid #5a5a5a;
     border-radius: 5px;
     padding-left: 15px;
+    background-color: #232323;
 }
 
 .editing {
@@ -94,6 +93,8 @@
     border: 1px solid #5a5a5a;
     border-radius: 5px;
     padding-left: 15px;
+    background-color: #232323;
+    margin-bottom: 20px;
 }
 
 .upper {
@@ -149,8 +150,6 @@
 }
 
 .form button {
-    /*margin-top: 225px;*/
-    /*margin-left: 280px;*/
     margin-top: 10px;
     margin-left: 280px;
     width: 30px;

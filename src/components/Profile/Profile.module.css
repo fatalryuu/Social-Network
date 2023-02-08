@@ -1,22 +1,26 @@
 .amount_wrapper {
-    display: table-cell;
-    width: 100px;
-    height: 140px;
+    /*display: table-cell;*/
+    width: 250px;
+    padding: 10px;
+    height: 120px;
     border: 1px solid #5a5a5a;
     border-radius: 5px;
     color: white;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.amount {
-    font-size: 72px;
-    font-weight: 600;
-
+    /*text-align: center;*/
+    /*vertical-align: middle;*/
+    background-color: #232323;
 }
 
 .amount_string {
     font-size: 14px;
+}
+
+.amount {
+    color: #adadad;
+}
+
+.followed {
+    font-weight: 600;
 }
 
 .lower {
