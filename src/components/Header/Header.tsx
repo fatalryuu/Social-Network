@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Header.module.css'
-import icon from '../../img/icon.png'
+import icon from '../../img/iconW.png'
 import {NavLink} from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 

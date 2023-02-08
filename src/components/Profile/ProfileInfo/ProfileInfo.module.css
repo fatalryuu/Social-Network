@@ -9,6 +9,7 @@
     border-radius: 5px;
     border: 1px solid #5a5a5a;
     padding: 10px;
+    margin-bottom: 50px;
 }
 
 .image:hover .fileUpload {
@@ -85,6 +86,16 @@
     padding-left: 15px;
 }
 
+.editing {
+    color: white;
+    margin-left: 20px;
+    width: 690px;
+    height: 380px;
+    border: 1px solid #5a5a5a;
+    border-radius: 5px;
+    padding-left: 15px;
+}
+
 .upper {
     width: 650px;
     border-bottom: 1px solid #5a5a5a;
@@ -105,10 +116,7 @@
 
 .form {
     white-space: nowrap;
-}
-
-.form .columns:first-child {
-
+    height: 350px;
 }
 
 .columns {
@@ -141,7 +149,9 @@
 }
 
 .form button {
-    margin-top: 225px;
+    /*margin-top: 225px;*/
+    /*margin-left: 280px;*/
+    margin-top: 10px;
     margin-left: 280px;
     width: 30px;
     height: 30px;

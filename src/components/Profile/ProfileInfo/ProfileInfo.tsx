@@ -7,7 +7,7 @@ import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 import ProfileData from "./ProfileData/ProfileData";
 import {ProfileType} from "../../../types/types";
 import {useSelector} from "react-redux";
-import {getProfileIsFetching} from "../../../redux/usersSelectors";
+import {getAmountOfFollowed, getProfileIsFetching} from "../../../redux/selectors";
 import UploadIcon from '@mui/icons-material/Upload';
 
 type PropsType = {
@@ -31,13 +31,12 @@ const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus, isOwne
         if (e.target.files.length)
             savePhoto(e.target.files[0]);
     }
-
     return (
         <div className={s.profile_info}>
             <div className={s.avatar}>
                 {isFetching ? <Preloader/> :
                     <div className={s.image}>
-                        <img src={profile.photos.large !== undefined ? profile.photos.large : avatar} alt="" />
+                        <img src={profile.photos.large !== null ? profile.photos.large : avatar} alt="" />
                         {isOwner ?
                             <span className={s.fileUpload}>
                             <input type="file" onChange={onAvatarSelected} className={s.upload} id="file-input"/>
@@ -54,7 +53,7 @@ const ProfileInfo: React.FC<PropsType> = ({profile, status, updateStatus, isOwne
                         }} className={isEnabled ? s.edit : s.edit_disabled}>Edit profile</button> : null}
                 </div>
             </div>
-            <div className={s.info}>
+            <div className={editMode ? s.editing : s.info}>
                 <div className={s.upper}>
                     <div className={s.name}>{profile.fullName}</div>
                     <span className={s.status}><ProfileStatus status={status} updateStatus={updateStatus} isOwner={isOwner}/></span>

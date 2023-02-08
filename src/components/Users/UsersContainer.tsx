@@ -2,7 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import Users from './Users';
 import Preloader from '../Common/Preloader/Preloader';
-import {getUsersIsFetching} from "../../redux/usersSelectors";
+import {getUsersIsFetching} from "../../redux/selectors";
 import {Navigate} from "react-router-dom";
 import {AppStateType} from "../../redux/store";
 

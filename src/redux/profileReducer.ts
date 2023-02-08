@@ -1,4 +1,4 @@
-import {profileAPI} from "../api/api";
+import {profileAPI, usersAPI} from "../api/api";
 import {PhotosType, PostType, ProfileType} from "../types/types";
 import {ThunkAction} from "redux-thunk";
 import {AppStateType, InferActionsTypes} from "./store";
@@ -10,7 +10,8 @@ let initialState = {
     ] as Array<PostType>,
     profile: null as null | ProfileType,
     isFetching: true,
-    status: ""
+    status: "",
+    amountOfFollowed: 0
 }
 
 export type InitialStateType = typeof initialState;
@@ -57,6 +58,11 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
                 ...state,
                 isFetching: action.isFetching
             }
+        case 'profile/SET_AMOUNT_OF_FOLLOWED':
+            return {
+                ...state,
+                amountOfFollowed: action.amountOfFollowed
+            }
         default:
             return state;
     }
@@ -72,6 +78,7 @@ export const actions = {
     savePhotoSuccess: (photos: PhotosType) => ({type: 'profile/SAVE_PHOTO_SUCCESS', photos} as const),
     saveProfileInfoSuccess: (profileInfo: ProfileType) => ({type: 'profile/SAVE_PROFILE_INFO_SUCCESS', profileInfo} as const),
     toggleIsFetching: (isFetching: boolean) => ({type: 'profile/TOGGLE_IS_FETCHING', isFetching} as const),
+    setAmountOfFollowed: (amountOfFollowed: number) => ({type: 'profile/SET_AMOUNT_OF_FOLLOWED', amountOfFollowed} as const),
 }
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>;
@@ -81,6 +88,8 @@ export const getProfile = (userID: number): ThunkType => async (dispatch) => {
     let data = await profileAPI.getProfile(userID);
     dispatch(actions.setUserProfile(data));
     dispatch(actions.toggleIsFetching(false));
+    let userData = await usersAPI.getUsers(1, 10, "", true);
+    dispatch(actions.setAmountOfFollowed(userData.totalCount));
 }
 export const getStatus = (userID: number): ThunkType => async (dispatch) => {
     dispatch(actions.toggleIsFetching(true));

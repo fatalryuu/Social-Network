@@ -4,7 +4,6 @@ import {UserType} from "../types/types";
 import {ThunkAction} from "redux-thunk";
 import {AppStateType, InferActionsTypes} from "./store";
 import {Dispatch} from "redux";
-import {isBooleanObject} from "util/types";
 
 let initialState = {
     users: [] as Array<UserType>,
@@ -16,7 +15,7 @@ let initialState = {
     filter: {
         term: '',
         friend: null as null | boolean
-    }
+    },
 }
 
 const usersReducer = (state = initialState, action: ActionsTypes): InitialStateType => {

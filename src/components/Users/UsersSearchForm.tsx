@@ -5,7 +5,7 @@ import type {RadioChangeEvent} from 'antd';
 import {ConfigProvider, Input, Radio, Space} from 'antd';
 import TuneIcon from '@mui/icons-material/Tune';
 import {useSelector} from "react-redux";
-import {getUsersFilter} from "../../redux/usersSelectors";
+import {getUsersFilter} from "../../redux/selectors";
 
 type PropsType = {
     onFilterChanged: (filter: FilterType) => void

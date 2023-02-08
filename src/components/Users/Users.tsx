@@ -12,7 +12,7 @@ import {
     getTotalUsersCount,
     getUsers,
     getUsersFilter
-} from "../../redux/usersSelectors";
+} from "../../redux/selectors";
 import {AppDispatch} from "../../redux/store";
 
 type PropsType = {

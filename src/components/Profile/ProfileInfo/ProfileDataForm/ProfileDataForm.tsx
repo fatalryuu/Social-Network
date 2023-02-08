@@ -60,7 +60,7 @@ const ProfileDataForm: React.FC<PropsType> = ({profile, setEditMode, setIsEnable
                         register={register} key={key} contactTitle={key}
                         contactValue={profile.contacts[key]}/>)}
                 </div>
-                <button onClick={() => setIsEnabled(true)}><DoneIcon style={{width: "15px"}}/></button>
+                <div><button onClick={() => setIsEnabled(true)}><DoneIcon style={{width: "15px"}}/></button></div>
             </form>
         </div>
     )
