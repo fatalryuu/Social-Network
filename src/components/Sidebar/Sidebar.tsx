@@ -18,7 +18,7 @@ const Sidebar: React.FC<PropsType> = () => {
                 <NavLink to="/profile" className={({isActive}) => isActive ? s.active : s.item}>
                     <span className={s.wrap}>
                         <AccountCircleIcon fontSize="small"/>
-                        <span className={s.string}>Profile</span>
+                        <span className={s.string}>My profile</span>
                     </span>
                 </NavLink>
             </div>
@@ -34,7 +34,7 @@ const Sidebar: React.FC<PropsType> = () => {
                 <NavLink to="/dialogs" className={({isActive}) => isActive ? s.active : s.item}>
                     <span className={s.wrap}>
                         <MessageIcon fontSize="small"/>
-                        <span className={s.string}>Messages</span>
+                        <span className={s.string}>Messenger</span>
                     </span>
                 </NavLink>
             </div>

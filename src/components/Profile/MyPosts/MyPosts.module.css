@@ -1,6 +1,7 @@
 .text {
     color: white;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .newPost {
@@ -44,5 +45,5 @@
 }
 
 .posts {
-    margin-top: 10px;
+
 }

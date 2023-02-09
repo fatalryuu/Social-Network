@@ -12,7 +12,7 @@ const MyPosts: React.FC = () => {
     const profile = useSelector(getProfileSelector);
     const posts = useSelector(getPosts);
     const dispatch: AppDispatch = useDispatch();
-    let postsElements = posts.map(p => <Post message={p.message} likes={p.likesCount} key={p.id}/>)
+    let postsElements = posts.map(p => <Post postInfo={p} key={p.id}/>)
 
     const onSubmit = (d: any) => {
         dispatch(actions.addPost(d.post));
