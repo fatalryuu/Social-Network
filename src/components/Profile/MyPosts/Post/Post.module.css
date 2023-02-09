@@ -1,11 +1,16 @@
-.post_wrapper {
+.post_wrapper, .first_post {
     border: 1px solid #5a5a5a;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #232323;
     margin-bottom: 20px;
     padding: 15px;
+    width: 647px;
     font-size: 14px;
     color: white;
+}
+
+.first_post {
+    border-radius: 0 0 10px 10px;
 }
 
 .upper {

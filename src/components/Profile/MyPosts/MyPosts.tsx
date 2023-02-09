@@ -12,7 +12,7 @@ const MyPosts: React.FC = () => {
     const profile = useSelector(getProfileSelector);
     const posts = useSelector(getPosts);
     const dispatch: AppDispatch = useDispatch();
-    let postsElements = posts.map(p => <Post postInfo={p} key={p.id}/>)
+    let postsElements = posts.map(p => <Post postInfo={p} key={p.id} last={posts.length}/>).reverse();
 
     const onSubmit = (d: any) => {
         dispatch(actions.addPost(d.post));
@@ -21,7 +21,7 @@ const MyPosts: React.FC = () => {
 
     return (
         <div className={s.posts_block}>
-            <form onSubmit={handleSubmit(onSubmit)} style={{width: "674px"}}>
+            <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
                 <div className={s.newPost}>
                     <div>
                         <input type="text" placeholder="Type here..." autoComplete="off" {...register("post", {required: true})}/>
@@ -30,7 +30,7 @@ const MyPosts: React.FC = () => {
                         <button>Add post</button>
                     </div>
                 </div>
-                <h3 className={s.text}>{profile?.fullName}'s posts</h3>
+                <div className={s.text}>{profile?.fullName}'s posts</div>
                 <div className={s.posts}>
                     {postsElements}
                 </div>

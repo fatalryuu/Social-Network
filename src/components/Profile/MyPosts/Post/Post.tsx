@@ -4,12 +4,13 @@ import avatar from '../../../../img/post_avatar.png'
 import {PostType} from "../../../../types/types";
 
 type PropsType = {
-    postInfo: PostType;
+    postInfo: PostType
+    last: number
 }
 
-const Post: React.FC<PropsType> = ({postInfo}) => {
+const Post: React.FC<PropsType> = ({postInfo, last}) => {
     return (
-        <div className={s.post_wrapper}>
+        <div className={postInfo.id + 1 !== last ? s.post_wrapper : s.first_post}>
             <div className={s.upper}>
                 <a href=""><img src={avatar} alt=""/></a>
                 <div className={s.writer_info}>

@@ -6,20 +6,20 @@ import {AppStateType, InferActionsTypes} from "./store";
 let initialState = {
     posts: [
         {
+            id: 0,
+            name: 'Tessa Tlu',
+            avatarUrl: null,
+            date: '27 Apr 2022',
+            message: 'It\'s my first post',
+            likesCount: 12
+        },
+        {
             id: 1,
             name: 'Nikita Ivanov',
             avatarUrl: null,
             date: '8 Jun 2022',
             message: 'Hi, how are you?',
             likesCount: 15
-        },
-        {
-            id: 2,
-            name: 'Tessa Tlu',
-            avatarUrl: null,
-            date: '27 Apr 2022',
-            message: 'It\'s my first post',
-            likesCount: 12
         }
     ] as Array<PostType>,
     profile: null as null | ProfileType,
@@ -36,7 +36,7 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
             return {
                 ...state,
                 posts: [...state.posts, {
-                    id: state.posts.length + 1,
+                    id: state.posts.length,
                     name: state.profile?.fullName as string,
                     avatarUrl: state.profile?.photos.small as string | null,
                     date: 'now',

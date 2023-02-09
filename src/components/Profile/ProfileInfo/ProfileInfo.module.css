@@ -6,7 +6,7 @@
 .avatar {
     width: 250px;
     height: 320px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #5a5a5a;
     padding: 10px;
     margin-bottom: 20px;
@@ -80,7 +80,7 @@
     width: 690px;
     height: 340px;
     border: 1px solid #5a5a5a;
-    border-radius: 5px;
+    border-radius: 10px;
     padding-left: 15px;
     background-color: #232323;
 }
@@ -91,7 +91,7 @@
     width: 690px;
     height: 380px;
     border: 1px solid #5a5a5a;
-    border-radius: 5px;
+    border-radius: 10px;
     padding-left: 15px;
     background-color: #232323;
     margin-bottom: 20px;
@@ -142,7 +142,7 @@
 }
 
 .contact_input, .about, .soft_skills {
-    border-radius: 5px;
+    border-radius: 10px;
     height: 17px;
     border: none;
     background-color: #ffffff;
