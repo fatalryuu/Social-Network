@@ -1,5 +1,5 @@
 import {profileAPI, usersAPI} from "../api/api";
-import {PhotosType, PostType, ProfileType} from "../types/types";
+import {PhotosType, PostType, ProfileType, UserType} from "../types/types";
 import {ThunkAction} from "redux-thunk";
 import {AppStateType, InferActionsTypes} from "./store";
 
@@ -25,7 +25,8 @@ let initialState = {
     profile: null as null | ProfileType,
     isFetching: true,
     status: "",
-    amountOfFollowed: 0
+    amountOfFollowed: 0,
+    followedUsers: [] as UserType[]
 }
 
 export type InitialStateType = typeof initialState;
@@ -84,6 +85,11 @@ const profileReducer = (state = initialState, action: ActionsTypes): InitialStat
                 ...state,
                 amountOfFollowed: action.amountOfFollowed
             }
+        case 'profile/SET_FOLLOWED_USERS':
+            return {
+                ...state,
+                followedUsers: action.followedUsers
+            }
         default:
             return state;
     }
@@ -106,6 +112,10 @@ export const actions = {
         type: 'profile/SET_AMOUNT_OF_FOLLOWED',
         amountOfFollowed
     } as const),
+    setFollowedUsers: (items: UserType[]) => ({
+        type: 'profile/SET_FOLLOWED_USERS',
+        followedUsers: items
+    } as const),
 }
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>;
@@ -116,6 +126,7 @@ export const getProfile = (userID: number): ThunkType => async (dispatch) => {
     dispatch(actions.setUserProfile(data));
     dispatch(actions.toggleIsFetching(false));
     let userData = await usersAPI.getUsers(1, 10, "", true);
+    dispatch(actions.setFollowedUsers(userData.items));
     dispatch(actions.setAmountOfFollowed(userData.totalCount));
 }
 export const getStatus = (userID: number): ThunkType => async (dispatch) => {

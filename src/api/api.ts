@@ -1,5 +1,5 @@
 import axios from "axios";
-import {PhotosType, ProfileType} from "../types/types";
+import {PhotosType, ProfileType, UserType} from "../types/types";
 
 const instance = axios.create({
     withCredentials: true,
@@ -10,13 +10,7 @@ const instance = axios.create({
 });
 
 type GetUsersType = {
-    items: [{
-        id: number
-        name: string
-        status: string
-        photos: PhotosType
-        followed: boolean
-    }]
+    items: UserType[]
     totalCount: number
     error: string
 }

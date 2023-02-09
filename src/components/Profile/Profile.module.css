@@ -1,14 +1,15 @@
-.amount_wrapper {
-    /*display: table-cell;*/
-    width: 250px;
-    padding: 10px;
+.amount_wrapper_low, .amount_wrapper_high {
+    width: 260px;
+    padding: 10px 0 10px 10px;
     height: 120px;
     border: 1px solid #5a5a5a;
     border-radius: 10px;
     color: white;
-    /*text-align: center;*/
-    /*vertical-align: middle;*/
     background-color: #232323;
+}
+
+.amount_wrapper_high {
+    height: 215px;
 }
 
 .amount_string {
@@ -19,7 +20,46 @@
     color: #adadad;
 }
 
-.followed {
+.upper {
+    margin-bottom: 10px;
+}
+
+.followed_users_low {
+    display: flex;
+}
+
+.followed_users_high {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.followed_user {
+    margin-bottom: 10px;
+    margin-right: 15px;
+}
+
+.followed_user img {
+    padding-left: 6px;
+    width: 65px;
+    height: 65px;
+    border-radius: 33px;
+}
+
+.followed_user a {
+    color: white;
+    text-decoration: none;
+}
+
+.followed_user a:hover {
+    text-decoration: underline;
+}
+
+.followed_name {
+    text-align: center;
+}
+
+.followed_string {
     font-weight: 600;
 }
 
