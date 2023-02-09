@@ -12,7 +12,7 @@ const Post: React.FC<PropsType> = ({postInfo, last}) => {
     return (
         <div className={postInfo.id + 1 !== last ? s.post_wrapper : s.first_post}>
             <div className={s.upper}>
-                <a href=""><img src={avatar} alt=""/></a>
+                <a href=""><img src={postInfo.avatarUrl === null ? avatar : postInfo.avatarUrl} alt=""/></a>
                 <div className={s.writer_info}>
                     <div><a href="">{postInfo.name}</a></div>
                     <div>{postInfo.date}</div>
