@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import s from './ProfileInfo.module.css'
-import avatar from '../../../img/user_avatar.jpg'
+import avatar from '../../../img/post_avatar_big.png'
 import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
 import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";

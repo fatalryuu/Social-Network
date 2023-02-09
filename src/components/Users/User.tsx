@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./Users.module.css";
-import avatar from "../../img/user_avatar.png";
 import {NavLink} from "react-router-dom";
+import avatar from '../../img/post_avatar.png'
 import {PhotosType, UserType} from "../../types/types";
 
 type PropsType = {
