@@ -30,7 +30,7 @@ const MyPosts: React.FC = () => {
                         <button>Add post</button>
                     </div>
                 </div>
-                <div className={s.text}>{profile?.fullName}'s posts</div>
+                <div className={s.text}>All posts</div>
                 <div className={s.posts}>
                     {postsElements}
                 </div>
