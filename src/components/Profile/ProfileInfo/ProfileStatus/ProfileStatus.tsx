@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import DoneIcon from "@mui/icons-material/Done";
+import s from '../ProfileInfo.module.css'
 
 type PropsType = {
     status: string | null
@@ -35,7 +37,12 @@ const ProfileStatus: React.FC<PropsType> = (props) => {
                 </div>
             ) : (
                 <div>
-                    <input onChange={onStatusChange} autoFocus={true} value={status ? status : ""} onBlur={deactivateEditMode}/>
+                    <form onSubmit={deactivateEditMode}>
+                        <div>
+                            <input onChange={onStatusChange} autoFocus={true} value={status ? status : ""} onBlur={deactivateEditMode}/>
+                            <button type="submit"><DoneIcon style={{width: "10px", height: "10px", padding: 0}}/></button>
+                        </div>
+                    </form>
                 </div>
             )}
         </div>

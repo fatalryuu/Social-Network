@@ -39,3 +39,14 @@
     height: 40px;
     border-radius: 20px;
 }
+
+.wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.string {
+    margin-left: 5px;
+}

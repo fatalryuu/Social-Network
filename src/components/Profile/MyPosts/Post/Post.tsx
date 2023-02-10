@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Post.module.css'
 import avatar from '../../../../img/post_avatar.png'
 import {PostType} from "../../../../types/types";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 type PropsType = {
     postInfo: PostType
@@ -9,6 +10,15 @@ type PropsType = {
 }
 
 const Post: React.FC<PropsType> = ({postInfo, last}) => {
+    const [likes, setLikes] = useState(postInfo.likesCount);
+    const [isLiked, setIsLiked] = useState(false);
+    const handleClick = () => {
+        if (isLiked)
+            setLikes(likes - 1);
+        else
+            setLikes(likes + 1);
+        setIsLiked(!isLiked);
+    }
     return (
         <div className={postInfo.id + 1 !== last ? s.post_wrapper : s.first_post}>
             <div className={s.upper}>
@@ -20,7 +30,10 @@ const Post: React.FC<PropsType> = ({postInfo, last}) => {
             </div>
             <div>{postInfo.message}</div>
             <div>
-                <span>like count: {postInfo.likesCount}</span>
+                <span className={s.wrap}>
+                    <FavoriteIcon style={isLiked ? {color: "red", cursor: "pointer"} : {color: "white", cursor: "pointer"}} onClick={handleClick}/>
+                    <span className={s.string}>{likes}</span>
+                </span>
             </div>
 
         </div>

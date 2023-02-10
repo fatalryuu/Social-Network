@@ -10,7 +10,8 @@ type PropsType = {
 const ContactInputs: React.FC<PropsType> = ({contactTitle, contactValue, register}) => {
     return (
         <div>
-            <input className={s.contact_input} type="text" defaultValue={contactValue} {...register("contacts." + contactTitle, {required: false})}/>
+            <input className={s.contact_input} placeholder={'Type here...'} type="text"
+                   defaultValue={contactValue} {...register("contacts." + contactTitle, {required: false})}/>
         </div>
     );
 };

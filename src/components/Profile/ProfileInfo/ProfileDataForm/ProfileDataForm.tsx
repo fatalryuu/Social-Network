@@ -44,23 +44,26 @@ const ProfileDataForm: React.FC<PropsType> = ({profile, setEditMode, setIsEnable
                         <input type="text" {...register("aboutMe", {required: false})}
                                defaultValue={profile.aboutMe}
                                onBlur={() => {
-                               }} placeholder={'About Me'} className={s.about}/>
+                               }} placeholder={'Type here...'} className={s.about}/>
                     </div>
                     <div>
                         <input type="checkbox"
-                               defaultChecked={profile.lookingForAJob} {...register("lookingForAJob", {required: false})}/>
+                               defaultChecked={profile.lookingForAJob}
+                               placeholder={'Type here...'} {...register("lookingForAJob", {required: false})}/>
                     </div>
                     <div>
                         <input type="text" {...register("lookingForAJobDescription", {required: false})}
                                defaultValue={profile.lookingForAJobDescription}
                                onBlur={() => {
-                               }} placeholder={'Soft skills'} className={s.soft_skills}/>
+                               }} placeholder={'Type here...'} className={s.soft_skills}/>
                     </div>
                     {(Object.keys(profile.contacts) as Array<keyof typeof profile.contacts>).map(key => <ContactInputs
                         register={register} key={key} contactTitle={key}
                         contactValue={profile.contacts[key]}/>)}
                 </div>
-                <div><button onClick={() => setIsEnabled(true)}><DoneIcon style={{width: "15px"}}/></button></div>
+                <div>
+                    <button onClick={() => setIsEnabled(true)}><DoneIcon style={{width: "15px"}}/></button>
+                </div>
             </form>
         </div>
     )
