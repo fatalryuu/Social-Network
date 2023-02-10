@@ -26,6 +26,7 @@
 
 .followed_users_low {
     display: flex;
+    margin-left: 10px;
 }
 
 .followed_users_high {
