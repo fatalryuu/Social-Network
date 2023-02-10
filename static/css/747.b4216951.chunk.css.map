@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/747.b4216951.chunk.css","mappings":"AAAA,yBACI,UACJ","sources":["components/ChatPage/ChatPage.module.css"],"sourcesContent":[".message {\r\n    color: white;\r\n}"],"names":[],"sourceRoot":""}
