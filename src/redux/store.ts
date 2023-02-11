@@ -7,6 +7,7 @@ import authReducer from "./authReducer";
 import {applyMiddleware, compose} from "@reduxjs/toolkit";
 import thunkMiddleware from "redux-thunk"
 import appReducer from "./appReducer";
+import chatReducer from "./chatReducer";
 
 let reducers = combineReducers({
     profilePage: profileReducer,
@@ -14,7 +15,8 @@ let reducers = combineReducers({
     sidebar: sidebarReducer,
     usersPage: usersReducer,
     auth: authReducer,
-    app: appReducer
+    app: appReducer,
+    chat: chatReducer
 })
 
 type RootReducerType = typeof reducers;
