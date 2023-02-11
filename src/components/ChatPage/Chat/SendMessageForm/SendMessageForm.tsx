@@ -6,7 +6,7 @@ import {sendMessage} from "../../../../redux/chatReducer";
 
 const SendMessageForm: React.FC<{}> = ({}) => {
     const [message, setMessage] = useState('');
-    const [readyStatus, setReadyStatus] = useState<'pending' | 'ready'>('pending');
+    const status = useSelector((state: AppStateType) => state.chat.status);
     const dispatch: AppDispatch = useDispatch();
 
     const sendMessageHandler = () => {
@@ -18,7 +18,7 @@ const SendMessageForm: React.FC<{}> = ({}) => {
     return (
         <div>
             <textarea onChange={(e) => setMessage(e.currentTarget.value)} value={message}></textarea>
-            <button disabled={false} onClick={sendMessageHandler}><SendIcon /></button>
+            <button disabled={status !== "ready"} onClick={sendMessageHandler}><SendIcon /></button>
         </div>
     );
 };
