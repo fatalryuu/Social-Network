@@ -1,7 +1,7 @@
 export type ChatMessageType = {
     message: string,
     photo: string,
-    userID: number,
+    userId: number,
     userName: string
 }
 

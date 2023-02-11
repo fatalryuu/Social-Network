@@ -1,3 +1,115 @@
+.chat_wrapper {
+    margin-top: 10px;
+    border: 1px solid #5a5a5a;
+    background-color: #232323;
+    border-radius: 10px;
+    width: 750px;
+    color: white;
+    margin-left: 50px;
+}
+
+.upper {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 0 15px 20px;
+    border-bottom: 1px solid #5a5a5a;
+}
+
+.messages {
+    height: 700px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: 20px;
+}
+
+.messages::-webkit-scrollbar {
+    width: 7px;
+    background-color: #232323;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border-radius: 5px;
+}
+
 .message {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.message_header {
+    display: flex;
+    padding-left: 10px;
+}
+
+.name_message {
+    padding-left: 10px;
+}
+
+.message_text {
+    font-size: 15px;
+    width: 600px;
+    word-wrap: break-word;
+}
+
+.message_header a {
+    text-decoration: none;
+    color: white;
+}
+
+.message_header b {
+
+}
+
+.message_header b:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.message img {
+    width: 40px;
+    border-radius: 20px;
+}
+
+.send_form {
+    background-color: #303030;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    border-top: 1px solid #5a5a5a;
+    display: flex;
+}
+
+.send_form input {
+    outline: none;
+    border: none;
+    width: 650px;
+    background-color: #303030;
+    color: white;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+.send_form input::placeholder {
+    color: #adadad;
+}
+
+.send_form div {
+    margin-left: 20px;
+    height: 35px;
+    border: 1px solid #5a5a5a;
+    border-radius: 5px;
+}
+
+.send_form button {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+    color: #a9a9a9;
+    cursor: pointer;
+}
+
+.send_form button:hover {
     color: white;
 }
