@@ -3,7 +3,7 @@
     border: 1px solid #5a5a5a;
     background-color: #232323;
     border-radius: 10px;
-    width: 750px;
+    width: 700px;
     color: white;
     margin-left: 50px;
 }
@@ -16,7 +16,7 @@
 }
 
 .messages {
-    height: 700px;
+    height: 720px;
     overflow-y: auto;
     overflow-x: hidden;
     margin-left: 20px;
@@ -30,6 +30,10 @@
 .messages::-webkit-scrollbar-thumb {
     background-color: #808080;
     border-radius: 5px;
+}
+
+.messages {
+    padding-bottom: 20px;
 }
 
 .message {
@@ -48,7 +52,7 @@
 
 .message_text {
     font-size: 15px;
-    width: 600px;
+    width: 550px;
     word-wrap: break-word;
 }
 
@@ -82,7 +86,7 @@
 .send_form input {
     outline: none;
     border: none;
-    width: 650px;
+    width: 600px;
     background-color: #303030;
     color: white;
     height: 30px;

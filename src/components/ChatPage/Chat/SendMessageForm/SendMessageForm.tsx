@@ -16,13 +16,19 @@ const SendMessageForm: React.FC<{}> = ({}) => {
         dispatch(sendMessage(message));
         setMessage('');
     }
+
+    const handleKeyPress = (e: any) => {
+        if (e.key === 'Enter')
+            sendMessageHandler();
+    }
+
     return (
         <div className={s.send_form}>
             <div>
-                <input onChange={(e) => setMessage(e.currentTarget.value)} value={message} autoFocus
+                <input onChange={(e) => setMessage(e.currentTarget.value)} value={message} autoFocus onKeyPress={handleKeyPress}
                        placeholder='Write a message...'/>
             </div>
-            <button disabled={status !== "ready"} onClick={sendMessageHandler}><SendIcon/></button>
+            <button disabled={status !== "ready"} onClick={sendMessageHandler} type="submit"><SendIcon/></button>
         </div>
     );
 };
