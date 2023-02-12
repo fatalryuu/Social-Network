@@ -2,7 +2,6 @@ import {authAPI, ResultCodeForCaptcha, ResultCodes, securityAPI} from "../api/ap
 import {ThunkAction} from "redux-thunk";
 import {AppStateType, InferActionsTypes} from "./store";
 import {chatAPI, ChatMessageType, StatusType} from "../api/chat-api";
-import messages from "../components/ChatPage/Chat/Messages/Messages";
 import {Dispatch} from "redux";
 
 let initialState = {
@@ -24,6 +23,11 @@ const chatReducer = (state = initialState, action: ActionsTypes): InitialStateTy
                 ...state,
                 status: action.payload
             }
+        case 'chat/CLEAR_MESSAGES':
+            return {
+                ...state,
+                messages: []
+            }
         default:
             return state;
     }
@@ -33,7 +37,8 @@ type ActionsTypes = InferActionsTypes<typeof actions>;
 
 export const actions = {
     setMessages: (messages: ChatMessageType[]) => ({type: 'chat/SET_MESSAGES', payload: messages} as const),
-    changeStatus: (status: StatusType) => ({type: 'chat/CHANGE_STATUS', payload: status} as const)
+    changeStatus: (status: StatusType) => ({type: 'chat/CHANGE_STATUS', payload: status} as const),
+    clearMessages: () => ({type: 'chat/CLEAR_MESSAGES'} as const),
 }
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
@@ -67,6 +72,7 @@ export const startMessagesListening = (): ThunkType => async (dispatch) => {
 }
 
 export const stopMessagesListening = (): ThunkType => async (dispatch) => {
+    dispatch(actions.clearMessages());
     chatAPI.unsubscribe('message', newMessageHandler(dispatch));
     chatAPI.unsubscribe('status', statusChangedHandler(dispatch));
     chatAPI.stop();

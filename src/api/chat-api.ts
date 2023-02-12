@@ -66,6 +66,10 @@ export const chatAPI = {
     subscribe(eventName: EventNameType, cb: MessageSubscriberType | StatusSubscriberType) {
         //@ts-ignore
         subscribers[eventName].push(cb);
+        return () => {
+            // @ts-ignore
+            subscribers[eventName] = subscribers[eventName].filter(s => s !== cb);
+        }
     },
     unsubscribe(eventName: EventNameType, cb: MessageSubscriberType | StatusSubscriberType) {
         //@ts-ignore

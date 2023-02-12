@@ -4,6 +4,7 @@ import SendMessageForm from "./SendMessageForm/SendMessageForm";
 import {useDispatch, useSelector} from "react-redux";
 import {startMessagesListening, stopMessagesListening} from "../../../redux/chatReducer";
 import {AppDispatch, AppStateType} from "../../../redux/store";
+import {chatAPI} from "../../../api/chat-api";
 
 const Chat: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();

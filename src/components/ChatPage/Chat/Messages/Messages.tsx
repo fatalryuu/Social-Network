@@ -7,6 +7,7 @@ import s from '../../ChatPage.module.css'
 
 const Messages: React.FC<{}> = ({}) => {
     const messages = useSelector((state: AppStateType) => state.chat.messages);
+    debugger;
     const messagesAnchorRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         messagesAnchorRef.current?.scrollIntoView(true);
