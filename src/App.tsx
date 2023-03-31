@@ -42,7 +42,7 @@ const App: React.FC = () => {
                             <Route path='/profile' element={<Page title="Profile"><ProfileContainer/></Page>}/>
                             <Route path='/profile/:userID' element={<Page title="Profile"><ProfileContainer/></Page>}/>
                             <Route path='/news' element={<Page title="News"><News/></Page>}/>
-                            <Route path='/dialogs/*' element={<Page title="Dialogs"><DialogsContainer/></Page>}/>
+                            {/*<Route path='/dialogs/*' element={<Page title="Dialogs"><DialogsContainer/></Page>}/>*/}
                             <Route path='/chat' element={<Page title="Chat"><ChatPage/></Page>}/>
                             <Route path='/users' element={<Page title="Users"><UsersPage/></Page>}/>
                             <Route path='/music' element={<Page title="Music"><Music/></Page>}/>

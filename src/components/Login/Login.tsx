@@ -27,10 +27,10 @@ const Login: React.FC = () => {
             <div className={s.acc_info}>
                 <p>Для входа используйте тестовый аккаунт:</p>
                 <p id="email">Email: testaccforsocialnetwork@gmail.com
-                    <button onClick={() => navigator.clipboard.writeText('testaccforsocialnetwork@gmail.com')}>Copy</button>
+                    <button onClick={() => navigator.clipboard.writeText('testaccforsocialnetwork@gmail.com')} className={s.copy}>Copy</button>
                 </p>
                 <p id="password">Password: 1234554321
-                    <button onClick={() => navigator.clipboard.writeText('1234554321')}>Copy</button>
+                    <button onClick={() => navigator.clipboard.writeText('1234554321')} className={s.copy}>Copy</button>
                 </p>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>

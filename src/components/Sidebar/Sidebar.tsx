@@ -8,68 +8,20 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import QueueMusicIcon from '@mui/icons-material/QueueMusic';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ThreePIcon from '@mui/icons-material/ThreeP';
+import Item from "./Item";
 
 type PropsType = {}
 
 const Sidebar: React.FC<PropsType> = () => {
     return (
         <nav className={s.nav}>
-            <div className={s.item}>
-                <NavLink to="/profile" className={({isActive}) => isActive ? s.active : s.item}>
-                    <span className={s.wrap}>
-                        <AccountCircleIcon fontSize="small"/>
-                        <span className={s.string}>My profile</span>
-                    </span>
-                </NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to="/news" className={({isActive}) => isActive ? s.active : s.item}>
-                    <span className={s.wrap}>
-                        <ArticleIcon fontSize="small"/>
-                        <span className={s.string}>News</span>
-                    </span>
-                </NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to="/dialogs" className={({isActive}) => isActive ? s.active : s.item}>
-                    <span className={s.wrap}>
-                        <MessageIcon fontSize="small"/>
-                        <span className={s.string}>Messenger</span>
-                    </span>
-                </NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to="/chat" className={({isActive}) => isActive ? s.active : s.item}>
-                    <span className={s.wrap}>
-                        <ThreePIcon fontSize="small"/>
-                        <span className={s.string}>Chat</span>
-                    </span>
-                </NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to="/users" className={({isActive}) => isActive ? s.active : s.item}>
-                    <span className={s.wrap}>
-                        <PeopleAltIcon fontSize="small"/>
-                        <span className={s.string}>Users</span>
-                    </span>
-                </NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to="/music" className={({isActive}) => isActive ? s.active : s.item}>
-                    <span className={s.wrap}>
-                        <QueueMusicIcon fontSize="small"/>
-                        <span className={s.string}>Music</span>
-                    </span>
-                </NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to="/settings" className={({isActive}) => isActive ? s.active : s.item}>
-                    <span className={s.wrap}>
-                        <SettingsIcon fontSize="small"/>
-                        <span className={s.string}>Settings</span>
-                    </span>
-                </NavLink>
-            </div>
+            <Item text="My profile" link="/profile" Icon={AccountCircleIcon}/>
+            <Item text="News" link="/news" Icon={ArticleIcon}/>
+            {/*<Item text="Messenger" link="/dialogs" Icon={MessageIcon}/>*/}
+            <Item text="Chat" link="/chat" Icon={ThreePIcon}/>
+            <Item text="Users" link="/users" Icon={PeopleAltIcon}/>
+            <Item text="Music" link="/music" Icon={QueueMusicIcon}/>
+            <Item text="Settings" link="/settings" Icon={SettingsIcon}/>
         </nav>
     );
 }
