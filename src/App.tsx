@@ -30,7 +30,7 @@ const App: React.FC = () => {
         return <Preloader/>
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/Social-Network">
             <div className='app-wrapper'>
                 <HeaderContainer/>
                 <Sidebar/>
