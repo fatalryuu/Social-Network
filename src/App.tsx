@@ -3,7 +3,7 @@ import './App.css';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import UsersPage from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -30,7 +30,7 @@ const App: React.FC = () => {
         return <Preloader/>
 
     return (
-        <BrowserRouter basename="/Social-Network">
+        <HashRouter>
             <div className='app-wrapper'>
                 <HeaderContainer/>
                 <Sidebar/>
@@ -55,7 +55,7 @@ const App: React.FC = () => {
                     </Suspense>
                 </div>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
