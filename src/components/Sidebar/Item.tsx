@@ -1,7 +1,6 @@
 import React from 'react';
 import s from "./Sidebar.module.css";
 import {NavLink} from "react-router-dom";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 type PropsType = {
     text: string,

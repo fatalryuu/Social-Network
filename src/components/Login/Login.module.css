@@ -1,23 +1,82 @@
-.acc_info {
+.wrapper {
     color: white;
+    margin-top: 10px;
+    width: 400px;
+    border: 1px solid #5a5a5a;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #232323;
+    text-align: center;
 }
 
-p {
+.icon {
+    width: 60px;
+}
+
+.header {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.acc_info p:first-child {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.acc_info p {
     margin: 0;
 }
 
-h1 {
-    color: white;
+.remember_me input[type="checkbox"] {
+    accent-color: black;
+    width: 15px;
+    height: 15px;
 }
 
 .remember_me {
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .acc_info p:last-child {
     margin-bottom: 10px;
 }
 
-.copy {
+.email, .password {
+    background-color: #313131;
+    border: 1px solid #5a5a5a;
+    border-radius: 10px;
+    width: 300px;
+    height: 15px;
+    outline: none;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
 
+.sign_in, .copy {
+    color: black;
+    margin-top: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    width: 210px;
+    height: 33px;
+    background-color: white;
+}
+
+.sign_in:hover, .copy:hover {
+    cursor: pointer;
+    background-color: #c6c6c6;
+    color: #242424;
+}
+
+.copy {
+    margin-left: 10px;
+    width: 50px;
+    height: 25px;
 }

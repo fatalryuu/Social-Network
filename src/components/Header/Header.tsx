@@ -17,7 +17,7 @@ const Header: React.FC<PropsType> = (props) => {
                 <NavLink to='/profile'><img src={icon} alt=""/></NavLink>
                 <div className={s.login}>
                     <span className={s.wrap}>
-                        {props.isAuth ? props.login : <NavLink to='/login'>Login</NavLink>}
+                        {props.isAuth ? props.login : <NavLink to='/login'>Sign in</NavLink>}
                         {props.isAuth ? <LogoutIcon style={{width: "20px", paddingLeft: "5px", cursor: "pointer"}}
                                                     onClick={props.logout}/> : null}
                     </span>
